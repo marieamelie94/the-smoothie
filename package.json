@@ -1,0 +1,9 @@
+{
+  "name": "the-smoothie",
+  "private": true,
+  "dependencies": {
+    "@rails/webpacker": "3.5",
+    "bootstrap": "3",
+    "jquery": "^3.3.1"
+  }
+}
