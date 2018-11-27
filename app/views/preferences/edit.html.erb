@@ -1,0 +1,14 @@
+ <%= simple_form_for @user do |f| %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :age %>
+    <%= f.input :weight %>
+    <%= f.input :height %>
+    <%= f.input :likes %>
+    <%= f.input :dislikes %>
+    <%= f.input :gender %>
+    <%= f.input :goal %>
+
+     <%= f.submit 'Done', class: 'btn btn-lg btn-info' %>
+
+  <% end %>
