@@ -2,13 +2,15 @@
 <h2>Work in progress</h2>
 <h3>Drink smoothies bitches </h3>
 
-<div>
+<div> <!-- Navbar links -->
 
-   <%# if user_signed_in? %>
-      <%#= link_to 'Order', new_flat_path  %>
-    <%# else %>
-    <%= link_to 'Log in', new_user_session_path, class: "btn btn-default" %>
-    <%= link_to 'Get Started', new_user_registration_path, class: "btn btn-default" %>
-    <p> <%= link_to "Log out", destroy_user_session_path, data: { confirm: "Are you sure?" }, method: :delete %></p>
+   <% if user_signed_in? %>
+      <%#= link_to 'Order', new_flat_path  %>   <!-- link for ordering to add when done -->
+      <%= link_to "Log out", destroy_user_session_path, class: "btn btn-default", data: { confirm: "Log out?" }, method: :delete %>
+      <%= link_to 'Preferences form',  preferences_path, class: "btn btn-default" %>
+    <% else %>
+      <%= link_to 'Log in', new_user_session_path, class: "btn btn-default" %>
+      <%= link_to 'Get Started', new_user_registration_path, class: "btn btn-default" %>
 
+    <% end %>
 </div>

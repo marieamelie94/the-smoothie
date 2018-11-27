@@ -1,6 +1,5 @@
  <%= simple_form_for @user do |f| %>
-    <%= f.input :first_name %>
-    <%= f.input :last_name %>
+ <h2>Let us know about yourself <%= @user.first_name %></h2>
     <%= f.input :age %>
     <%= f.input :weight %>
     <%= f.input :height %>
@@ -9,6 +8,6 @@
     <%= f.input :gender %>
     <%= f.input :goal %>
 
-     <%= f.submit 'Done', class: 'btn btn-lg btn-info' %>
+    <%= f.submit 'Done', class: 'btn btn-lg btn-info' %>
 
   <% end %>
