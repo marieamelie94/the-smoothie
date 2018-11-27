@@ -1,0 +1,12 @@
+<h1>Welcome to The Smoothie Home page</h1>
+<h2>Work in progress</h2>
+<h3>Drink smoothies bitches </h3>
+
+<div>
+
+   <%# if user_signed_in? %>
+      <%#= link_to 'Order', new_flat_path  %>
+    <%# else %>
+    <%= link_to 'Log in', new_user_session_path, class: "btn btn-default" %>
+    <%= link_to 'Get Started', new_user_registration_path, class: "btn btn-default" %>
+</div>
