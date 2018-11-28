@@ -1,5 +1,7 @@
- <%= simple_form_for @user do |f| %>
- <h2>Let us know about yourself <%= @user.first_name %></h2>
+<div class="container">
+   <% if user_signed_in? %>
+   <%= simple_form_for @user do |f| %>
+    <h2>Let us know about yourself</h2>
     <%= f.input :age %>
     <%= f.input :weight %>
     <%= f.input :height %>
@@ -9,5 +11,12 @@
     <%= f.input :goal %>
 
     <%= f.submit 'Done', class: 'btn btn-lg btn-info' %>
-
   <% end %>
+
+  <% else %>
+    <p>No user</p>
+    <!-- Create a new user instance -->
+    <%= link_to 'Configure', pages_configure_path, class: "btn btn-default" %>
+  <% end %>
+
+</div>

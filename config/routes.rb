@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   }
   root to: 'pages#home'
   get '/pages/home' => 'pages#home'
-  # get '/pages/:page' => 'pages#show'
+  get '/pages/configure' => 'smoothies#configure'
+  get '/pages/:page' => 'pages#show', as: :page
   get '/preferences' => 'preferences#edit'
 
   resources :users, only: [:show, :edit, :update]
