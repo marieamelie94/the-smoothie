@@ -1,0 +1,18 @@
+<!-- navbar code -->
+
+<div class="navigation-bar"> <!-- Navbar links -->
+
+  <div class="logo"><%= link_to "The Smoothie", root_path  %> </div>
+  <div>
+   <% if user_signed_in? %>
+      <%#= link_to 'Order', new_flat_path  %>   <!-- link for ordering to add when done -->
+      <%= link_to "Log out", destroy_user_session_path, class: "btn btn-default", data: { confirm: "Log out?" }, method: :delete %>
+      <%= link_to 'Preferences form',  preferences_path, class: "btn btn-default" %>
+    <% else %>
+      <%= link_to 'Log in', new_user_session_path, class: "btn btn-default" %>
+      <%= link_to 'Sign up', new_user_registration_path, class: "btn btn-default" %>
+    <% end %>
+    <%= link_to 'Smoothies', smoothies_path, class: "btn btn-default" %>
+    <%= link_to 'About', page_path("about"), class: "btn btn-default" %>
+  </div>
+</div>

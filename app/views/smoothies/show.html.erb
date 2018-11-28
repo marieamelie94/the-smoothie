@@ -1,11 +1,14 @@
+<div class="container">
+  <%= @smoothie.name %>
+  <%= @smoothie.nickname %>
+  <%= @smoothie.description %>
 
-<%= @smoothie.name %>
-<%= @smoothie.nickname %>
-<%= @smoothie.description %>
+  <div>
+    Ingredients:
+    <% @smoothie.doses.each do |d| %>
+      <div><%= d.ingredient.name %> <%= d.value%><%= d.unit%></div>
+    <% end %>
+  </div>
+  <%= link_to 'Back to Smoothies', smoothies_path, class: 'btn btn-default'  %>
 
-Ingredients:
-<% @smoothie.doses.each do |d| %>
-  <%= d.ingredient.name %> (<%= d.grams%><%= d.mililiters%><% if d.grams %> grams)<% else %> mililiters)<% end %>
-<% end %>
-
-<%= link_to 'Back to Smoothies', smoothies_path, class: 'btn btn-default'  %>
+</div>

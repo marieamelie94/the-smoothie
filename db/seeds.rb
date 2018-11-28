@@ -33,6 +33,14 @@ s1 = Smoothie.create!(name:"Green Detox",
                       nickname: "Greenny",
                       description: "This is the detox heaven, spinach is blabla, tumeric is super blabla",
                       )
+s2 = Smoothie.create!(name:"Green Boost",
+                      nickname: "Boosty",
+                      description: "This is the boost heaven, ginger is blabla, tumeric is super blabla",
+                      )
+s3 = Smoothie.create!(name:"Orange Boost",
+                      nickname: "Boosty",
+                      description: "This is the boost heaven, orange is blabla, tumeric is super blabla",
+                      )
 
 d1 = Dose.create!(unit:"ml", value: 250, ingredient_id: i5.id, smoothie_id: s1.id)
 d2 = Dose.create!(unit:"g", value: 100, ingredient_id: i1.id, smoothie_id: s1.id)
@@ -40,6 +48,17 @@ d3 = Dose.create!(unit:"g", value: 100,ingredient_id: i2.id, smoothie_id: s1.id)
 d4 = Dose.create!(unit:"g", value: 100,ingredient_id: i3.id, smoothie_id: s1.id)
 d5 = Dose.create!(unit:"g", value: 15,ingredient_id: i4.id, smoothie_id: s1.id)
 d5 = Dose.create!(unit:"g", value: 15,ingredient_id: i6.id, smoothie_id: s1.id)
+
+d6 = Dose.create!(unit:"g", value: 100,ingredient_id: i1.id, smoothie_id: s2.id)
+d7 = Dose.create!(unit:"g", value: 100,ingredient_id: i2.id, smoothie_id: s2.id)
+d8 = Dose.create!(unit:"g", value: 15,ingredient_id: i3.id, smoothie_id: s2.id)
+d9 = Dose.create!(unit:"ml", value: 200,ingredient_id: i6.id, smoothie_id: s2.id)
+
+Dose.create!(unit:"g", value: 100,ingredient_id: i1.id, smoothie_id: s3.id)
+Dose.create!(unit:"g", value: 100,ingredient_id: i2.id, smoothie_id: s3.id)
+Dose.create!(unit:"g", value: 15,ingredient_id: i3.id, smoothie_id: s3.id)
+Dose.create!(unit:"ml", value: 200,ingredient_id: i6.id, smoothie_id: s3.id)
+
 
 
 p "Seed done ....! Now you'd better work bitch ! <3"

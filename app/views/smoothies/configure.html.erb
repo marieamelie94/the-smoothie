@@ -1,0 +1,27 @@
+<div class="container">
+  <h1>Configure Your Basket</h1>
+
+  <div class="smoothies">
+    <% @smoothies.each do |s| %>
+      <div class="smoothie">
+        <h3><%=s.name%></h3>
+        <div class="smoothie__amount">
+          <div class="add btn btn-default">
+            +
+          </div>
+          <div class="smoothie__count">
+            1
+          </div>
+          <div class="smoothie__remove btn btn-default">
+            -
+          </div>
+        </div>
+        <div class="btn btn-default">Details</div> <!--Will Open the modal-->
+      </div>
+    <% end %>
+  </div>
+
+  <%= link_to 'Order', page_path("order"), class: "btn btn-default" %>
+
+</div>
+
