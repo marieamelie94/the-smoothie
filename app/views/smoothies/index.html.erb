@@ -1,4 +1,9 @@
-
-<% @smoothies.each do |s| %>
-<%= link_to "#{s.name}", smoothy_path(s) %>
-<% end %>
+<div class="container">
+  <div class="smoothies">
+    <% @smoothies.each do |s| %>
+      <div>
+        <%= render 'smoothie', { s: s } %>
+      </div>
+    <% end %>
+  </div>
+</div>

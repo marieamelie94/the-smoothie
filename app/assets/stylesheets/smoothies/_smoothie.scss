@@ -11,3 +11,17 @@
     margin-bottom: 1rem;
   }
 }
+
+.smoothie__ingredients {
+  border: 1px solid #ddd;
+  margin-bottom: 1rem;
+
+  &__title {
+    padding: 1rem;
+  }
+}
+
+.smoothie__ingredient {
+  border-top: 1px solid #ddd;
+  padding: 1rem;
+}

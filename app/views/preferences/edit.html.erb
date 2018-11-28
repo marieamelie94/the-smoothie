@@ -1,12 +1,10 @@
 <div class="container">
    <% if user_signed_in? %>
    <%= simple_form_for @user do |f| %>
-    <h2>Let us know about yourself</h2>
+    <h1>Let us know about yourself</h1>
     <%= f.input :age %>
     <%= f.input :weight %>
     <%= f.input :height %>
-    <%= f.input :like_id %>
-    <%= f.input :dislike_id %>
     <%= f.input :gender %>
     <%= f.input :goal %>
 
@@ -14,7 +12,8 @@
   <% end %>
 
   <% else %>
-    <p>No user</p>
+    <h1>Hi Guest!</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias eum, maxime vel soluta.</p>
     <!-- Create a new user instance -->
     <%= link_to 'Configure', pages_configure_path, class: "btn btn-default" %>
   <% end %>

@@ -6,14 +6,14 @@
       <div class="smoothie">
         <h3><%=s.name%></h3>
         <div class="smoothie__amount">
-          <div class="add btn btn-default">
-            +
+          <div class="smoothie__remove btn btn-default">
+            -
           </div>
           <div class="smoothie__count">
             1
           </div>
-          <div class="smoothie__remove btn btn-default">
-            -
+          <div class="add btn btn-default">
+            +
           </div>
         </div>
         <div class="btn btn-default">Details</div> <!--Will Open the modal-->
@@ -21,7 +21,7 @@
     <% end %>
   </div>
 
-  <%= link_to 'Order', page_path("order"), class: "btn btn-default" %>
+  <%= link_to 'Order', page_path("order"), class: "btn btn-lg btn-success" %>
 
 </div>
 
