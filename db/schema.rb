@@ -10,30 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_28_105917) do
+ActiveRecord::Schema.define(version: 2018_11_28_181136) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "allergies", force: :cascade do |t|
-    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "ingredient_id"
+    t.bigint "user_id"
+    t.index ["ingredient_id"], name: "index_allergies_on_ingredient_id"
+    t.index ["user_id"], name: "index_allergies_on_user_id"
   end
 
   create_table "dislikes", force: :cascade do |t|
-    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "ingredient_id"
+    t.bigint "user_id"
+    t.index ["ingredient_id"], name: "index_dislikes_on_ingredient_id"
+    t.index ["user_id"], name: "index_dislikes_on_user_id"
   end
 
   create_table "doses", force: :cascade do |t|
-    t.integer "grams"
-    t.integer "mililiters"
     t.bigint "smoothie_id"
     t.bigint "ingredient_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "unit", default: "g"
+    t.integer "value"
     t.index ["ingredient_id"], name: "index_doses_on_ingredient_id"
     t.index ["smoothie_id"], name: "index_doses_on_smoothie_id"
   end
@@ -50,12 +56,16 @@ ActiveRecord::Schema.define(version: 2018_11_28_105917) do
     t.boolean "liquid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "photo"
   end
 
   create_table "likes", force: :cascade do |t|
-    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "ingredient_id"
+    t.bigint "user_id"
+    t.index ["ingredient_id"], name: "index_likes_on_ingredient_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "order_items", force: :cascade do |t|
@@ -78,6 +88,8 @@ ActiveRecord::Schema.define(version: 2018_11_28_105917) do
     t.datetime "delivery_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "payed", default: false
+    t.boolean "delivered", default: false
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -90,6 +102,7 @@ ActiveRecord::Schema.define(version: 2018_11_28_105917) do
     t.string "preparation_instructions"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "photo"
   end
 
   create_table "users", force: :cascade do |t|
@@ -108,22 +121,19 @@ ActiveRecord::Schema.define(version: 2018_11_28_105917) do
     t.integer "height"
     t.string "gender"
     t.string "goal"
-    t.bigint "allergies_id"
-    t.bigint "like_id"
-    t.bigint "dislike_id"
-    t.index ["allergies_id"], name: "index_users_on_allergies_id"
-    t.index ["dislike_id"], name: "index_users_on_dislike_id"
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["like_id"], name: "index_users_on_like_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "allergies", "ingredients"
+  add_foreign_key "allergies", "users"
+  add_foreign_key "dislikes", "ingredients"
+  add_foreign_key "dislikes", "users"
   add_foreign_key "doses", "ingredients"
   add_foreign_key "doses", "smoothies", column: "smoothie_id"
+  add_foreign_key "likes", "ingredients"
+  add_foreign_key "likes", "users"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "smoothies", column: "smoothie_id"
   add_foreign_key "orders", "users"
-  add_foreign_key "users", "allergies", column: "allergies_id"
-  add_foreign_key "users", "dislikes"
-  add_foreign_key "users", "likes"
 end
