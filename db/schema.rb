@@ -10,12 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_27_134759) do
+ActiveRecord::Schema.define(version: 2018_11_28_105917) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "allergies", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "dislikes", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -42,6 +48,12 @@ ActiveRecord::Schema.define(version: 2018_11_27_134759) do
     t.integer "fiber"
     t.integer "minerals"
     t.boolean "liquid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -94,13 +106,15 @@ ActiveRecord::Schema.define(version: 2018_11_27_134759) do
     t.integer "age"
     t.integer "weight"
     t.integer "height"
-    t.string "likes"
-    t.string "dislikes"
     t.string "gender"
     t.string "goal"
     t.bigint "allergies_id"
+    t.bigint "like_id"
+    t.bigint "dislike_id"
     t.index ["allergies_id"], name: "index_users_on_allergies_id"
+    t.index ["dislike_id"], name: "index_users_on_dislike_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["like_id"], name: "index_users_on_like_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
@@ -110,4 +124,6 @@ ActiveRecord::Schema.define(version: 2018_11_27_134759) do
   add_foreign_key "order_items", "smoothies", column: "smoothie_id"
   add_foreign_key "orders", "users"
   add_foreign_key "users", "allergies", column: "allergies_id"
+  add_foreign_key "users", "dislikes"
+  add_foreign_key "users", "likes"
 end
