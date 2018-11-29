@@ -25,3 +25,16 @@
 
 </div>
 
+<%#= @order.persisted? %>
+<%= @smoothies.map(&:name) %>
+
+<%= simple_form_for :order, url: order_add_items_path(@order) do |form| %>
+  <% @smoothies.each do |smoothie| %>
+    <%= form.simple_fields_for :order_items do |s| %>
+    <h3><%=smoothie.name%></h3>
+    <% key = "smoothie_quantity" + smoothie.id.to_s %>
+    <%= s.input key.to_sym, collection: (1..5), label: "Quantity", required: false %>
+    <% end %>
+  <%  end  %>
+  <%= form.submit "Order", class: "btn btn-success" %>
+<% end %>
