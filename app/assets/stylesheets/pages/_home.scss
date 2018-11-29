@@ -28,3 +28,47 @@
   display: flex;
   justify-content: center;
 }
+
+.section-lead {
+  padding: 48px 0;
+}
+
+
+.section {
+  padding: 80px 0;
+
+  &:nth-child(odd) {
+    background: #f5f5f5;
+  }
+  &:nth-child(even) {
+    background: #fff;
+  }
+}
+
+.features {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.feature {
+  text-align: center;
+
+  i {
+    width: 160px;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eee;
+    border-radius: 80px;
+    overflow: hidden;
+    font-size: 64px;
+    margin: 0 auto;
+    margin-bottom: 24px;
+  }
+}
+
+.headline--donation {
+  font-size: 64px;
+  line-height: 80px;
+}
