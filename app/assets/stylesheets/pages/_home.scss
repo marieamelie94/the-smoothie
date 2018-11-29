@@ -1,1 +1,30 @@
 // Specific CSS for your home-page
+.img {
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+
+}
+
+.img-1 {
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+  width: inherit;
+  margin-top: 40px;
+}
+
+.b1 {
+  display: flex;
+  justify-content: center;
+  // margin-left: auto;
+  // margin-right: auto;
+  // width: inherit;
+  margin-top: 40px;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+}
