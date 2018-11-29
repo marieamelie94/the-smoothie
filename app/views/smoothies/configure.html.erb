@@ -2,30 +2,24 @@
   <h1>Configure Your Basket</h1>
 
   <div class="smoothies">
-    <div class="container">
-      <div class="row">
-        <% @smoothies.each do |s| %>
-        <div class="col-md-4">
-          <img src="https://res.cloudinary.com/mas-cloud/image/upload/v1543489199/the-smoothie/smoothie-green.png" alt="" width ="150" height="120">
-          <div class="smoothie">
-            <h3><%=s.name%></h3>
-            <div class="smoothie__amount">
-              <div class="smoothie__remove btn btn-default">
-                -
-              </div>
-              <div class="smoothie__count">
-                1
-              </div>
-              <div class="add btn btn-default">
-                +
-              </div>
-            </div>
-            <div class="btn btn-default">Details</div> <!--Will Open the modal-->
-          </div>
+    <% @smoothies.each do |s| %>
+    <div class="smoothie">
+      <img src="https://res.cloudinary.com/mas-cloud/image/upload/v1543489199/the-smoothie/smoothie-green.png" alt="" width ="150" height="120">
+      <h3><%=s.name%></h3>
+      <div class="smoothie__amount">
+        <div class="smoothie__remove btn btn-default">
+          -
         </div>
-          <% end %>
+        <div class="smoothie__count">
+          1
+        </div>
+        <div class="add btn btn-default">
+          +
+        </div>
       </div>
+      <div class="btn btn-default">Details</div> <!--Will Open the modal-->
     </div>
+    <% end %>
   </div>
   <%= link_to 'Order', page_path("order"), class: "btn btn-lg btn-success" %>
 
