@@ -29,19 +29,58 @@ allergy1 = Allergy.create!(ingredient_id: i6.id, user_id: user1.id)
 allergy2 = Allergy.create!(ingredient_id: i5.id, user_id: user1.id)
 allergy3 = Allergy.create!(ingredient_id: i1.id, user_id: user1.id)
 
-s1 = Smoothie.create!(name:"Green Detox",
-  nickname: "Greenny",
+s1 = Smoothie.create!(name:"Blue Berry",
+  nickname: "Blueee",
   description: "This is the detox heaven, spinach is blabla, tumeric is super blabla",
+  photo: "https://res.cloudinary.com/mas-cloud/image/upload/v1543507100/the-smoothie/smoothie-blue.png"
   )
 
-s2 = Smoothie.create!(name:"Green Boost",
+s2 = Smoothie.create!(name:"Purple Boost",
   nickname: "Boosty",
   description: "This is the boost heaven, ginger is blabla, tumeric is super blabla",
+  photo: "https://res.cloudinary.com/mas-cloud/image/upload/v1543507101/the-smoothie/Bildschirmfoto_2018-11-29_um_16.56.36.png"
   )
 
 s3 = Smoothie.create!(name:"Orange Boost",
   nickname: "Boosty",
   description: "This is the boost heaven, orange is blabla, tumeric is super blabla",
+  photo: "https://res.cloudinary.com/mas-cloud/image/upload/v1543507101/the-smoothie/Bildschirmfoto_2018-11-29_um_15.44.19.png"
+  )
+
+s4 = Smoothie.create!(name:"Pink Detox",
+  nickname: "Greenny",
+  description: "This is the detox heaven, spinach is blabla, tumeric is super blabla",
+  photo: "https://res.cloudinary.com/mas-cloud/image/upload/v1543507101/the-smoothie/smoothie-pink.png"
+  )
+
+s5 = Smoothie.create!(name:"Blue Boost",
+  nickname: "Boosty",
+  description: "This is the boost heaven, ginger is blabla, tumeric is super blabla",
+  photo: "https://res.cloudinary.com/mas-cloud/image/upload/v1543507100/the-smoothie/smoothie-blue.png"
+  )
+
+s6 = Smoothie.create!(name:"Brown Boost",
+  nickname: "Boosty",
+  description: "This is the boost heaven, orange is blabla, tumeric is super blabla",
+  photo: "https://res.cloudinary.com/mas-cloud/image/upload/v1543507102/the-smoothie/smoothie-brown.png"
+  )
+
+s7 = Smoothie.create!(name:"Green Boost",
+  nickname: "Boosty",
+  description: "This is the boost heaven, orange is blabla, tumeric is super blabla",
+  photo: "https://res.cloudinary.com/mas-cloud/image/upload/v1543507100/the-smoothie/Bildschirmfoto_2018-11-29_um_16.56.10.png"
+  )
+
+s8 = Smoothie.create!(name:"Ginger Boost",
+  nickname: "Boosty",
+  description: "This is the boost heaven, orange is blabla, tumeric is super blabla",
+  photo: "https://res.cloudinary.com/mas-cloud/image/upload/v1543507100/the-smoothie/Bildschirmfoto_2018-11-29_um_16.56.18.png"
+  )
+
+s9 = Smoothie.create!(name:"Red Boost",
+  nickname: "Boosty",
+  description: "This is the boost heaven, orange is blabla, tumeric is super blabla",
+  photo: "https://res.cloudinary.com/mas-cloud/image/upload/v1543507100/the-smoothie/smoothie-red.png"
   )
 
 
