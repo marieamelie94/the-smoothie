@@ -2,6 +2,37 @@
 <div class="container">
   <h1>Choose Amount</h1>
 
-  <%= link_to 'Create Your Basket', orders_path, method: :post %>
+  <div class="amount">
+
+    <div class="amount__selected-info-top">
+      You have selected:
+    </div>
+
+    <div class="amount__selected">
+      7
+    </div>
+
+    <div class="amount__selected-info-bottom">
+      Smoothies
+    </div>
+
+    <div class="amount__measure">
+      <span>7</span>
+      <span>14</span>
+      <span>21</span>
+      <span>28</span>
+    </div>
+
+    <div class="amount__bar">
+      <input type="range" id="amount" name="amount" min="7" max="28" step="7">
+    </div>
+
+  </div>
+
+  <%= link_to 'Create Your Basket', orders_path, method: :post, class: 'btn-center btn btn-lg btn-success' %>
 
 </div>
+
+<script>
+  console.log($("#amount").val())
+</script>
