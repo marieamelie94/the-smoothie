@@ -1,7 +1,10 @@
 .smoothie {
-  padding: 1rem;
+  padding: 2rem;
   border: 1px solid #ddd;
   margin-bottom: 1rem;
+  background: #fff;
+  border-radius: 8px;
+  text-align: center;
 
   &__amount {
     display: flex;
@@ -10,6 +13,24 @@
     padding: 0.5rem 0;
     margin-bottom: 1rem;
   }
+
+  .input.select {
+    width: 100%;
+
+    label {
+      margin: 0 8px;
+    }
+  }
+}
+
+.smoothie--detail {
+  background: #fff;
+  border-radius: 8px;
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 48px;
+  margin-bottom: 48px;
 }
 
 .smoothie__ingredients {

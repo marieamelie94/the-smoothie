@@ -1,7 +1,7 @@
 <div class="container">
   <div class="smoothie--detail">
     <div>
-      <img src="https://res.cloudinary.com/mas-cloud/image/upload/v1543489199/the-smoothie/smoothie-green.png" alt="" width ="400" height="400">
+      <img src="<%= @smoothie.photo %>" alt="" width ="400" height="400">
     </div>
     <h1><%= @smoothie.name %></h1>
     <p><%= @smoothie.nickname %></p>
@@ -15,6 +15,6 @@
         </div>
       <% end %>
     </div>
-    <%= link_to 'Back to Smoothies', smoothies_path, class: 'btn btn-default' %>
   </div>
+  <%= link_to 'Back to Smoothies', smoothies_path, class: 'btn btn-lg btn-center btn-success' %>
 </div>
