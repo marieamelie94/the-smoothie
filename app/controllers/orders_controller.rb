@@ -13,6 +13,14 @@ class OrdersController < ApplicationController
     end
   end
 
+  def choose_amount
+  end
+
+  def configure
+    @smoothies = Smoothie.all
+    @order = Order.find(params[:order_id])
+  end
+
   def add_items
     @order = Order.find(params[:order_id])
     order_item_params[:order_items].each do |smoothie, quantity|
@@ -24,19 +32,25 @@ class OrdersController < ApplicationController
   end
 
   def confirmation
-  end
-
-  def choose_amount
-  end
-
-  def configure
-    @smoothies = Smoothie.all
     @order = Order.find(params[:order_id])
+  end
+
+  def delivery_info
+    @order = Order.find(params[:order_id])
+    # if @order.update(order_delivery_params)
+    #   render order_confirmation_path(@order)
+    # else
+    #   flash.now[:alert] = 'Please check your address'
+    # end
   end
 
   private
 
   def order_item_params
     params.require(:order).permit(order_items: {})
+  end
+
+  def order_delivery_params
+    params.require(:order).permit(:delivery_address, :delivery_date)
   end
 end
