@@ -1,21 +1,54 @@
-<div class="container">
-   <% if user_signed_in? %>
-   <%= simple_form_for @user do |f| %>
-    <h1>Let us know about yourself</h1>
-    <%= f.input :age %>
-    <%= f.input :weight %>
-    <%= f.input :height %>
-    <%= f.input :gender %>
-    <%= f.input :goal %>
+<div class="edit-preferences">
 
-    <%= f.submit 'Done', class: 'btn btn-lg btn-info' %>
-  <% end %>
+  <div class="container">
+
+    <h2>Let us know about yourself</h2>
+    <div class="preferences-form">
+     <% if user_signed_in? %>
+     <%= simple_form_for @user do |f| %>
+     <%= f.input :age, input_html: { class: "form-control" } %>
+     <%= f.input :weight, input_html: { class: "form-control" } %>
+     <%= f.input :height, input_html: { class: "form-control" } %>
+     <%= f.input :gender,
+     input_html: { class: "form-control" },
+     collection: [
+      ['0', 'Please select your gender'],
+      ['female', 'Female'],
+      ['male', 'Male'],
+      ['other', 'Other']
+    ],
+    selected: 0,
+    label_method: :second,
+    value_method: :first
+    %>
+    <%= f.input :goal,
+    input_html: { class: "form-control" },
+    collection: [
+      ['0', 'Please select your goal'],
+      ['detox', 'Detox'],
+      ['weight-loss', 'Weight Loss'],
+      ['muscle', 'Muscle'],
+      ['immune', 'Immune'],
+      ['energy', 'Energy'],
+    ],
+    selected: 0,
+    label_method: :second,
+    value_method: :first
+    %>
+
+    <%= f.submit 'Done', class: 'btn btn-lg btn-success' %>
+    <% end %>
+
+
+  </div>
 
   <% else %>
-    <h1>Hi Guest!</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias eum, maxime vel soluta.</p>
-    <!-- Create a new user instance -->
-    <%= link_to 'Configure', smoothies_configure_path, class: "btn btn-default" %>
+  <h1>Hi Guest!</h1>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias eum, maxime vel soluta.</p>
+  <!-- Create a new user instance -->
+  <%= link_to 'Configure', smoothies_configure_path, class: "btn btn-default" %>
   <% end %>
+
+</div>
 
 </div>

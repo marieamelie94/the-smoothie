@@ -1,12 +1,44 @@
-<div class="container">
-   <img class="img" src="https://res.cloudinary.com/mas-cloud/image/upload/v1543496741/the-smoothie/smoothies-banner.png" alt="">
+<div class="home">
+  <div class="section-lead">
+    <div class="container">
+      <img class="img" src="https://res.cloudinary.com/mas-cloud/image/upload/v1543496741/the-smoothie/smoothies-banner.png" alt="">
+    </div>
+  </div>
 
-   <img class="img-1"src="https://res.cloudinary.com/mas-cloud/image/upload/v1543496888/the-smoothie/Bildschirmfoto_2018-11-29_um_14.07.32.png" alt="">
-   <!-- WRAP IN DIV -->
-  <!-- DISPLAY FLEX + JUSTIFY CONTENT  -->
-  <div class="button">
-    <%= link_to 'Get Started', page_path("choose-amount"), class: "btn btn-lg btn-success b1" %>
-</div>
+  <div class="section">
+    <div class="container">
+      <div class="features">
+        <div class="feature">
+          <i class="fa fa-shopping-basket"></i>
+          <p>Create your basket</p>
+        </div>
+        <div class="feature">
+          <i class="fas fa-snowflake"></i>
+          <p>Receive frozen ingredients</p>
+        </div>
+        <div class="feature">
+          <i class="far fa-clock"></i>
+          <p>Prepare in a minute</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div>
+        <h3 class="headline--donation">We donate 5% of our annual profit to animal rescue</h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="button">
+      <%= link_to 'Get Started', page_path("choose-amount"), class: "btn btn-lg btn-success b1" %>
+      </div>
+    </div>
+  </div>
 </div>
 
 
