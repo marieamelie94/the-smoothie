@@ -1,16 +1,11 @@
 class PagesController < ApplicationController
-  #skip_before_action :authenticate_user!, only: [:show]
+  skip_before_action :authenticate_user!
+  # before_action :authenticate_user!, only: [:show]
   before_action :require_profile_exist
 
   def show
+    # render template: "pages/home"
     render template: "pages/#{params[:page]}"
-
-
-  end
-
-  def configure
-    @smoothies = Smoothie.all
-    # render template: "pages/#{params[:page]}"
   end
 
   private

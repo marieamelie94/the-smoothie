@@ -7,7 +7,5 @@ class SmoothiesController < ApplicationController
     @smoothie = Smoothie.find(params[:id])
   end
 
-  def configure
-    @smoothies = Smoothie.all
-  end
+
 end
