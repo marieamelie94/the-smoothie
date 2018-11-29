@@ -1,46 +1,41 @@
 <div class="container">
   <h1>Configure Your Basket</h1>
-
   <div class="smoothies">
     <div class="container">
       <div class="row">
-        <% @smoothies.each do |s| %>
-        <div class="col-md-4">
-          <img src="https://res.cloudinary.com/mas-cloud/image/upload/v1543489199/the-smoothie/smoothie-green.png" alt="" width ="150" height="120">
-          <div class="smoothie">
-            <h3><%=s.name%></h3>
-            <div class="smoothie__amount">
-              <div class="smoothie__remove btn btn-default">
-                -
-              </div>
-              <div class="smoothie__count">
-                1
-              </div>
-              <div class="add btn btn-default">
-                +
+        <%= simple_form_for :order, url: order_add_items_path(@order) do |form| %>
+          <% @smoothies.each do |smoothie| %>
+            <div class="col-md-4">
+              <img src="https://res.cloudinary.com/mas-cloud/image/upload/v1543489199/the-smoothie/smoothie-green.png" alt="" width ="150" height="120">
+
+              <div class="smoothie">
+                <%= form.simple_fields_for :order_items do |s| %>
+                  <h3><%=smoothie.name%></h3>
+
+                  <div class="smoothie__amount">
+                    <% key = "smoothie_quantity" + smoothie.id.to_s %>
+                    <%= s.input key.to_sym, collection: (1..5), label: "Quantity", required: false %>
+                      <!-- <div class="smoothie__remove btn btn-default">
+                        -
+                      </div>
+                      <div class="smoothie__count">
+                        1
+                      </div>
+                      <div class="add btn btn-default">
+                        +
+                      </div> -->
+                  </div>
+                <% end %>
+                <div class="btn btn-default">Details</div> <!--Will Open the modal-->
               </div>
             </div>
-            <div class="btn btn-default">Details</div> <!--Will Open the modal-->
-          </div>
-        </div>
           <% end %>
+          <%= form.submit "Order", class: "btn btn-success" %>
+        <% end %>
       </div>
     </div>
   </div>
-  <%= link_to 'Order', page_path("order"), class: "btn btn-lg btn-success" %>
-
+  <%#= link_to 'Order', page_path("order"), class: "btn btn-lg btn-success" %>
 </div>
 
 <%#= @order.persisted? %>
-<%= @smoothies.map(&:name) %>
-
-<%= simple_form_for :order, url: order_add_items_path(@order) do |form| %>
-  <% @smoothies.each do |smoothie| %>
-    <%= form.simple_fields_for :order_items do |s| %>
-    <h3><%=smoothie.name%></h3>
-    <% key = "smoothie_quantity" + smoothie.id.to_s %>
-    <%= s.input key.to_sym, collection: (1..5), label: "Quantity", required: false %>
-    <% end %>
-  <%  end  %>
-  <%= form.submit "Order", class: "btn btn-success" %>
-<% end %>

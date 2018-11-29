@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get '/smoothies/:order_id/configure', to: 'orders#configure', as: :order_configure
   post '/orders/:order_id/add_items', to: 'orders#add_items', as: :order_add_items
   get '/orders/:order_id/confirmation', to: 'orders#confirmation', as: :order_confirmation
+  post '/orders/:order_id/delivery_info', to: 'orders#delivery_info', as: :order_delivery_info
   get '/smoothies/choose-amount' => 'orders#choose_amount'
   resources :smoothies, only: [:index, :show, :edit, :update]
 
