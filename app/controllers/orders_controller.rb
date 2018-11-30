@@ -37,7 +37,7 @@ class OrdersController < ApplicationController
 
   def delivery_info
     @order = Order.find(params[:order_id])
-    # if @order.update(order_delivery_params)
+    @order.update(order_delivery_params)
     #   render order_confirmation_path(@order)
     # else
     #   flash.now[:alert] = 'Please check your address'
@@ -51,6 +51,6 @@ class OrdersController < ApplicationController
   end
 
   def order_delivery_params
-    params.require(:order).permit(:delivery_address, :delivery_date)
+    params.require(:order).permit(:delivery_address, :delivery_date, :delivery_time_period)
   end
 end

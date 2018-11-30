@@ -2,7 +2,7 @@
   <div class="row">
 
   <div class="basket col-sm-4">
-    <div class='form'>
+    <div class='form confirmation-box'>
       <h3>Your Basket</h3>
       <% @order.order_items.each do |item| %>
       <% next if item.smoothie_quantity == 0 %>
@@ -14,19 +14,36 @@
 
   <div class="checkout">
     <div class="delivery-info col-sm-4">
-      <div class='form'>
+      <div class='form confirmation-box'>
         <div class="form-inputs">
           <h3>Delivery</h3>
           <%= simple_form_for :order, url: order_delivery_info_path(@order) do |f| %>
-          <%= f.input :delivery_address, as: :text, autofocus: true, input_html: { autocomplete: "address" }, class: "form-control" %>
-          <%= f.input :delivery_date, as: :datetime, class: "form-control" %>
+          <%= f.input :delivery_address, input_html: { autocomplete: "address" }, class: "form-control" %>
+          <%= f.input :delivery_date, as: :string, input_html: {class: "datepicker"}, class: "form-control" %>
+          <%= f.input :delivery_time_period,
+               input_html: { class: "form-control" },
+               collection: [
+                [ '0', 'Please select your delivery time'],
+                ['08:00-10:00', '08:00-10:00'],
+                ['10:00-12:00', '10:00-12:00'],
+                ['12:00-14:00', '12:00-14:00'],
+                ['14:00-16:00', '14:00-16:00'],
+                ['16:00-18:00', '16:00-18:00'],
+                ['18:00-12:00', '18:00-20:00'],
+              ],
+              selected: 0,
+              label_method: :second,
+              value_method: :first
+              %>
+
+          <%#= f.input :delivery_date, as: :wday %>
         </div>
           <%= f.submit 'Confirm', class: 'btn btn-default' %>
         <% end %>
       </div>
   </div>
     <div class="payment-info col-sm-4">
-      <div class="form">
+      <div class="form confirmation-box">
         <h3>Payment</h3>
           <%= link_to 'Pay', '/pages/checkout', class: "btn btn-default" %>
 
