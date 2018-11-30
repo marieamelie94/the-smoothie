@@ -6,6 +6,16 @@ import rangePlugin from "flatpickr/dist/plugins/rangePlugin"
 flatpickr(
   ".datepicker", {
    altInput: true,
+   "locale": {
+        "firstDayOfWeek": 1 // start week on Monday
+    },
+    disable: [
+        function(date) {
+            // return true to enable
+            return (date.getDay() === 0);
+
+        }
+    ]
  })
 
   // flatpickr(".timepicker", {
