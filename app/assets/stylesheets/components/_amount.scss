@@ -1,0 +1,34 @@
+/* -------------------------------------
+ * Your CSS code for amount
+* ------------------------------------- */
+
+.amount {
+  max-width: 640px;
+  margin: 0 auto;
+  margin-bottom: 48px;
+
+  &__measure {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__bar {
+
+  }
+
+  &__selected {
+    font-size: 80px;
+    color: #62F69D;
+    text-align: center;
+  }
+
+  &__selected-info-top {
+    margin-top: 24px;
+    text-align: center;
+  }
+
+  &__selected-info-bottom {
+    margin-bottom: 24px;
+    text-align: center;
+  }
+}

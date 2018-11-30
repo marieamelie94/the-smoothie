@@ -6,20 +6,20 @@
     <% @smoothies.each do |smoothie| %>
 
     <div class="smoothie">
-      <img src="https://res.cloudinary.com/mas-cloud/image/upload/v1543489199/the-smoothie/smoothie-green.png" alt="" width ="150" height="120">
+      <img src="<%= smoothie.photo %>" alt="" width ="150" height="120">
 
       <%= form.simple_fields_for :order_items do |s| %>
       <h3><%=smoothie.name%></h3>
 
       <div class="smoothie__amount">
         <% key = "smoothie_quantity" + smoothie.id.to_s %>
-        <%= s.input key.to_sym, collection: (1..5), label: "Quantity", required: false %>
+        <%= s.input key.to_sym, selected: 0, collection: (0..5), label: "Quantity", required: false %>
       </div>
       <% end %>
       <div class="btn btn-default">Details</div> <!--Will Open the modal-->
     </div>
     <% end %>
   </div>
-  <%= form.submit "Order", class: "btn btn-success" %>
+  <%= form.submit "Order", class: "btn btn-lg btn-center btn-success" %>
   <% end %>
 </div>
