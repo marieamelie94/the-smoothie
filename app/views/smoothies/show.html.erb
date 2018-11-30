@@ -16,5 +16,9 @@
       <% end %>
     </div>
   </div>
-  <%= link_to 'Back to Smoothies', smoothies_path, class: 'btn btn-lg btn-center btn-success' %>
+
+  <div class="row btn-lg btn-center">
+   <div class="col-sm-6"> <%= link_to 'Back', smoothies_path, class: 'btn btn-lg btn-center btn-success' %> </div>
+   <div class="col-sm-6"><%= link_to 'Order', page_path("choose-amount"), class: 'btn btn-lg btn-center btn-success' %></div>
+  </div>
 </div>
