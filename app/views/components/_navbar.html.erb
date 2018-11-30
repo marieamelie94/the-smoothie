@@ -1,10 +1,12 @@
-<!-- navbar code -->
-
 <div class="navigation-bar"> <!-- Navbar links -->
-
-  <div class="logo"><%= link_to "The Smoothie", root_path  %> </div>
-  <div>
-   <% if user_signed_in? %>
+  <div class="logo">
+    <strong> <%= link_to "The Smoothie", root_path, class: "logo" %> </strong></div>
+  <div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn" style="background-image: url(http://res.cloudinary.com/mas-cloud/image/upload/v1543405729/the-smoothie/logo.png");">
+    <!-- <img id="logo_p"src="http://res.cloudinary.com/mas-cloud/image/upload/v1543405729/the-smoothie/logo.png" alt=""> -->
+  </button>
+  <div id="myDropdown" class="dropdown-content dropdown-toggle pull-right">
+    <% if user_signed_in? %>
       <%#= link_to 'Order', new_flat_path  %>   <!-- link for ordering to add when done -->
       <%= link_to "Log out", destroy_user_session_path, class: "btn btn-default", data: { confirm: "Log out?" }, method: :delete %>
       <%= link_to 'Preferences form',  preferences_path, class: "btn btn-default" %>
@@ -16,3 +18,57 @@
     <%= link_to 'About', page_path("about"), class: "btn btn-default" %>
   </div>
 </div>
+
+</div>
+
+
+
+<script type="text/javascript">
+  function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+// var dropdown = document.querySelectorAll('.dropdown');
+// var dropdownArray = Array.prototype.slice.call(dropdown,0);
+// dropdownArray.forEach(function(el){
+//   var button = el.querySelector('a[data-toggle="dropdown"]'),
+//       menu = el.querySelector('.dropdown-menu'),
+//       arrow = button.querySelector('i.icon-arrow');
+
+//   button.onclick = function(event) {
+//     if(!menu.hasClass('show')) {
+//       menu.classList.add('show');
+//       menu.classList.remove('hide');
+//       arrow.classList.add('open');
+//       arrow.classList.remove('close');
+//       event.preventDefault();
+//     }
+//     else {
+//       menu.classList.remove('show');
+//       menu.classList.add('hide');
+//       arrow.classList.remove('open');
+//       arrow.classList.add('close');
+//       event.preventDefault();
+//     }
+//   };
+// })
+
+// Element.prototype.hasClass = function(className) {
+//     return this.className && new RegExp("(^|\\s)" + className + "(\\s|$)").test(this.className);
+// };
+</script>
