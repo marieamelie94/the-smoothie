@@ -19,9 +19,23 @@
           <h3>Delivery</h3>
           <%= simple_form_for :order, url: order_delivery_info_path(@order) do |f| %>
           <%= f.input :delivery_address, input_html: { autocomplete: "address" }, class: "form-control" %>
-          <%= f.input :delivery_date, as: :date, class: "form-control" %>
-          <%= f.input :delivery_start_time, as: :time, class: "form-control" %>
-          <%= f.input :delivery_end_time, as: :time, class: "form-control" %>
+          <%= f.input :delivery_date, as: :string, input_html: {class: "datepicker"}, class: "form-control" %>
+          <%= f.input :delivery_time_period,
+               input_html: { class: "form-control" },
+               collection: [
+                [ '0', 'Please select your delivery time'],
+                ['08:00-10:00', '08:00-10:00'],
+                ['10:00-12:00', '10:00-12:00'],
+                ['12:00-14:00', '12:00-14:00'],
+                ['14:00-16:00', '14:00-16:00'],
+                ['16:00-18:00', '16:00-18:00'],
+                ['18:00-12:00', '18:00-20:00'],
+              ],
+              selected: 0,
+              label_method: :second,
+              value_method: :first
+              %>
+
           <%#= f.input :delivery_date, as: :wday %>
         </div>
           <%= f.submit 'Confirm', class: 'btn btn-default' %>
