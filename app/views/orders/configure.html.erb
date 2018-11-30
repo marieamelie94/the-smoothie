@@ -42,6 +42,15 @@
       </div>
       <div class="modal-body">
         <%= smoothie.description %>
+         <div class="smoothie__ingredients">
+        <h2 class="smoothie__ingredients__title">Ingredients</h2>
+        <% smoothie.doses.each do |d| %>
+          <div class="smoothie__ingredient">
+            <%= d.ingredient.name %> <%= d.value%><%= d.unit%>
+          </div>
+      <% end %>
+    </div>
+  </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
