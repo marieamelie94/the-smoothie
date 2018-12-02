@@ -15,7 +15,7 @@
       </div>
      <%= f.input :age, as: :range, label: false,
       input_html: { id:"age",
-      min:"18", max:"98", step:"1", name:"age"} %>
+      min:18, max:98, step:1, value:30} %>
 
       <strong><div class="value__selected-info-top">
         Weight:
@@ -25,7 +25,7 @@
       </div>
      <%= f.input :weight, as: :range, label: false,
       input_html: { id:"weight",
-      min:"30", max:"140", step:"1", name:"weight"} %>
+      min:"30", max:"140", step:"1", value:50} %>
 
       <strong><div class="value__selected-info-top">
         Height:
@@ -35,28 +35,28 @@
       </div>
       <%= f.input :height, as: :range, label: false,
       input_html: { id:"height",
-      min:"120", max:"220", step:"1", name:"height"} %>
+      min:"60", max:"220", step:"1", value:160} %>
 
-     <div class="value__selected-info-top">
-        <%= f.input :gender,
-       input_html: { class: "form-control" },
-       collection: [
-        ['0', 'Please select your gender'],
+
+     <div class="value__selected-info-top form-check form-check-inline">
+        <%= f.input :gender, as: :radio_buttons,
+      input_html: {class: "form-check-input" },
+      collection: [
         ['female', 'Female'],
         ['male', 'Male'],
         ['other', 'Other']
       ],
       selected: 0,
       label_method: :second,
+      label_html: {class: "form-check-label"},
       value_method: :first
       %>
     </div>
 
     <div class="value__selected-info-top">
-      <%= f.input :goal,
-      input_html: { class: "form-control" },
+      <%= f.input :goal, as: :radio_buttons,
+      input_html: { class: "" },
       collection: [
-        ['0', 'Please select your goal'],
         ['detox', 'Detox'],
         ['weight-loss', 'Weight Loss'],
         ['muscle', 'Muscle'],
