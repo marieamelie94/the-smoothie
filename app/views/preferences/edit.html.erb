@@ -6,37 +6,68 @@
     <div class="preferences-form">
      <% if user_signed_in? %>
      <%= simple_form_for @user do |f| %>
-     <%= f.input :age, as: :range,
+
+      <strong><div class="value__selected-info-top">
+        Age:
+      </div></strong>
+      <div id="age__selected" class="value__selected">
+        30
+      </div>
+     <%= f.input :age, as: :range, label: false,
       input_html: { id:"age",
-       min:"18", max:"98", step:"1", value:30, name:"age"} %>
-     <%= f.input :weight, input_html: { class: "form-control" } %>
-     <%= f.input :height, input_html: { class: "form-control" } %>
-     <%= f.input :gender,
-     input_html: { class: "form-control" },
-     collection: [
-      ['0', 'Please select your gender'],
-      ['female', 'Female'],
-      ['male', 'Male'],
-      ['other', 'Other']
-    ],
-    selected: 0,
-    label_method: :second,
-    value_method: :first
-    %>
-    <%= f.input :goal,
-    input_html: { class: "form-control" },
-    collection: [
-      ['0', 'Please select your goal'],
-      ['detox', 'Detox'],
-      ['weight-loss', 'Weight Loss'],
-      ['muscle', 'Muscle'],
-      ['immune', 'Immune'],
-      ['energy', 'Energy'],
-    ],
-    selected: 0,
-    label_method: :second,
-    value_method: :first
-    %>
+      min:"18", max:"98", step:"1", name:"age"} %>
+
+      <strong><div class="value__selected-info-top">
+        Weight:
+      </div></strong>
+      <div id="weight__selected" class="value__selected">
+        50
+      </div>
+     <%= f.input :weight, as: :range, label: false,
+      input_html: { id:"weight",
+      min:"30", max:"140", step:"1", name:"weight"} %>
+
+      <strong><div class="value__selected-info-top">
+        Height:
+      </div></strong>
+      <div id="height__selected" class="value__selected">
+        160
+      </div>
+      <%= f.input :height, as: :range, label: false,
+      input_html: { id:"height",
+      min:"120", max:"220", step:"1", name:"height"} %>
+
+     <div class="value__selected-info-top">
+        <%= f.input :gender,
+       input_html: { class: "form-control" },
+       collection: [
+        ['0', 'Please select your gender'],
+        ['female', 'Female'],
+        ['male', 'Male'],
+        ['other', 'Other']
+      ],
+      selected: 0,
+      label_method: :second,
+      value_method: :first
+      %>
+    </div>
+
+    <div class="value__selected-info-top">
+      <%= f.input :goal,
+      input_html: { class: "form-control" },
+      collection: [
+        ['0', 'Please select your goal'],
+        ['detox', 'Detox'],
+        ['weight-loss', 'Weight Loss'],
+        ['muscle', 'Muscle'],
+        ['immune', 'Immune'],
+        ['energy', 'Energy'],
+      ],
+      selected: 0,
+      label_method: :second,
+      value_method: :first
+      %>
+    </div>
 
     <%= f.submit 'Done', class: 'btn btn-lg btn-success' %>
     <% end %>
@@ -52,5 +83,31 @@
   <% end %>
 
 </div>
+
+<script>
+  const age = document.getElementById("age");
+  const selected_age = document.getElementById("age__selected");
+  age.addEventListener("change", (event) => {
+      event.preventDefault();
+      selected_age.innerHTML = event.target.value;
+
+  });
+  const weight = document.getElementById("weight");
+  const selected_weight = document.getElementById("weight__selected");
+  weight.addEventListener("change", (event) => {
+      event.preventDefault();
+      selected_weight.innerHTML = event.target.value;
+
+  });
+  const height = document.getElementById("height");
+  const selected_height = document.getElementById("height__selected");
+  height.addEventListener("change", (event) => {
+      event.preventDefault();
+      selected_height.innerHTML = event.target.value;
+
+  });
+
+
+</script>
 
 </div>
