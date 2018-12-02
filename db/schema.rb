@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_30_134018) do
+ActiveRecord::Schema.define(version: 2018_12_02_162806) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(version: 2018_11_30_134018) do
     t.boolean "completed", default: false, null: false
     t.date "delivery_date"
     t.string "delivery_time_period"
+    t.integer "smoothies_amount"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
