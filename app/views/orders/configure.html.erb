@@ -3,19 +3,8 @@
   <div class="selected-smoothies">
     <h3>Your selected smoothies:</h3>
     <div class="selected-smoothie__summary">
-      <ul class="list-group">
-        <li class="list-group-item">
-          <span class="badge">14</span>
-          Green Boots
-        </li>
-        <li class="list-group-item">
-          <span class="badge">14</span>
-          Green Boots
-        </li>
-        <li class="list-group-item">
-          <span class="badge">14</span>
-          Green Boots
-        </li>
+      <ul id="selected-smoothie-list" class="list-group">
+        No items yet...
       </ul>
     </div>
     <div>
@@ -36,14 +25,10 @@
 
       <div class="smoothie__amount">
         <% key = "smoothie_quantity" + smoothie.id.to_s %>
-        <%= s.input key.to_sym, selected: 0, collection: (0..5), label: "Quantity", required: false %>
+        <%= s.input key.to_sym, selected: 0, collection: (0..7), label: "Quantity", required: false %>
       </div>
       <% end %>
       <div class="btn btn-default" data-toggle="modal" data-target='<%= "#detox_description_#{smoothie.id}" %>'>Details</div>
-      <!--Will Open the modal-->
-
-
-
     </div>
     <% end %>
   </div>
@@ -83,3 +68,40 @@
 </div>
 </div>
 <% end %>
+<script>
+  const totalSmoothies = <%= raw @smoothies.all().to_json %>;
+  let selectedSmoothies = {};
+
+  totalSmoothies.forEach((smoothie, index) => {
+    const smoothieAmount = document.getElementById(
+      `order_order_items_smoothie_quantity${index + 1}`
+    );
+
+    smoothieAmount.addEventListener("change", (event) => {
+      event.preventDefault();
+      (event.target.value === '0')
+        ? delete selectedSmoothies[smoothie.name]
+        : selectedSmoothies[smoothie.name] = event.target.value;
+
+      const selectedSmoothieList = document.getElementById(
+        'selected-smoothie-list'
+      );
+
+      while (selectedSmoothieList.firstChild) {
+        selectedSmoothieList.removeChild(selectedSmoothieList.firstChild);
+      }
+
+      Object.keys(selectedSmoothies).forEach(smoothieName => {
+        const listItem = document.createElement('li');
+        listItem.className = "list-group-item";
+        listItem.innerHTML = `
+          <span class="badge">
+            ${selectedSmoothies[smoothieName]}
+          </span>
+          ${smoothieName}
+        `;
+        selectedSmoothieList.appendChild(listItem);
+      });
+    });
+  });
+</script>
