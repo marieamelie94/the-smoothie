@@ -43,6 +43,12 @@
   &:nth-child(even) {
     background: #fff;
   }
+  .section__title {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 48px;
+  }
 }
 
 .features {
@@ -72,3 +78,8 @@
   font-size: 64px;
   line-height: 80px;
 }
+
+.section-lead__img {
+  margin-bottom: 24px;
+}
+
