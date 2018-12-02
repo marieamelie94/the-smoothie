@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new(user_id: current_user.id)
+    @order = Order.new(user_id: current_user.id, smoothies_amount: params[:amount])
     if @order.save
       redirect_to order_configure_path(@order)
     else

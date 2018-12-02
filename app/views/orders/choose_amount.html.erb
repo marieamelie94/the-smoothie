@@ -8,7 +8,7 @@
       You have selected:
     </div>
 
-    <div class="amount__selected">
+    <div id="amount__selected" class="amount__selected">
       7
     </div>
 
@@ -24,15 +24,29 @@
     </div>
 
     <div class="amount__bar">
-      <input type="range" id="amount" name="amount" min="7" max="28" step="7" value="7">
+      <%= simple_form_for Order.new, :url => orders_path, :method => :post do |f| %>
+      <%= f.input :smoothies_amount, as: :range, label: false,
+      input_html: { id:"amount",
+       min:"7", max:"28", step:"7", value:7, name:"amount"} %>
+      <%= f.submit'Create Your Basket', class: 'btn-center btn btn-lg btn-success' %>
+      <% end %>
+
+      <!-- <input type="range" id="amount" name="amount" min="7" max="28" step="7" value="7"> -->
     </div>
 
   </div>
 
-  <%= link_to 'Create Your Basket', orders_path, method: :post, class: 'btn-center btn btn-lg btn-success' %>
+  <%#= link_to 'Create Your Basket', orders_path(:smoothies_amount => "?smoothies_quantity"), method: :post, class: 'btn-center btn btn-lg btn-success' %>
 
 </div>
 
 <script>
-  console.log($("#amount").val())
+  const amount = document.getElementById("amount");
+  const selected_amount = document.getElementById("amount__selected");
+  amount.addEventListener("change", (event) => {
+      event.preventDefault();
+      selected_amount.innerHTML = event.target.value;
+
+  });
+
 </script>

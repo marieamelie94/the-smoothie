@@ -1,4 +1,4 @@
-<div class="edit-preferences">
+ <div class="edit-preferences">
 
   <div class="container">
 
@@ -6,7 +6,9 @@
     <div class="preferences-form">
      <% if user_signed_in? %>
      <%= simple_form_for @user do |f| %>
-     <%= f.input :age, input_html: { class: "form-control" } %>
+     <%= f.input :age, as: :range,
+      input_html: { id:"age",
+       min:"18", max:"98", step:"1", value:30, name:"age"} %>
      <%= f.input :weight, input_html: { class: "form-control" } %>
      <%= f.input :height, input_html: { class: "form-control" } %>
      <%= f.input :gender,
