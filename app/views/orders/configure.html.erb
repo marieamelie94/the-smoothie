@@ -1,5 +1,28 @@
 <div class="container">
   <h1>Configure Your Basket</h1>
+  <div class="selected-smoothies">
+    <h3>Your selected smoothies:</h3>
+    <div class="selected-smoothie__summary">
+      <ul class="list-group">
+        <li class="list-group-item">
+          <span class="badge">14</span>
+          Green Boots
+        </li>
+        <li class="list-group-item">
+          <span class="badge">14</span>
+          Green Boots
+        </li>
+        <li class="list-group-item">
+          <span class="badge">14</span>
+          Green Boots
+        </li>
+      </ul>
+    </div>
+    <div>
+      total amount: 12 euro
+    </div>
+
+  </div>
   <%= simple_form_for :order, url: order_add_items_path(@order) do |form| %>
 
   <div class="smoothies">
@@ -17,7 +40,7 @@
       </div>
       <% end %>
       <div class="btn btn-default" data-toggle="modal" data-target='<%= "#detox_description_#{smoothie.id}" %>'>Details</div>
-       <!--Will Open the modal-->
+      <!--Will Open the modal-->
 
 
 
@@ -42,21 +65,21 @@
       </div>
       <div class="modal-body">
         <%= smoothie.description %>
-         <div class="smoothie__ingredients">
-        <h2 class="smoothie__ingredients__title">Ingredients</h2>
-        <% smoothie.doses.each do |d| %>
+        <div class="smoothie__ingredients">
+          <h2 class="smoothie__ingredients__title">Ingredients</h2>
+          <% smoothie.doses.each do |d| %>
           <div class="smoothie__ingredient">
             <%= d.ingredient.name %> <%= d.value%><%= d.unit%>
           </div>
-      <% end %>
+          <% end %>
+        </div>
+      </div>
     </div>
-  </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 
-      </div>
     </div>
   </div>
 </div>
-      <% end %>
+</div>
+<% end %>
