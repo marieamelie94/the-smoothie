@@ -1,91 +1,111 @@
-<div class="container">
-  <h1>Configure Your Basket</h1>
-  <div class="selected-smoothies">
-    <h3>Your selected smoothies:</h3>
-    <div class="selected-smoothie__summary">
-      <ul id="selected-smoothie-list" class="list-group">
-        No items yet...
-      </ul>
-    </div>
-    <div>
-      total amount: 12 euro
-    </div>
+<div class="configure">
 
-  </div>
-  <%= simple_form_for :order, url: order_add_items_path(@order) do |form| %>
-
-  <div class="smoothies">
-    <% @smoothies.each do |smoothie| %>
-
-    <div class="smoothie">
-      <img src="<%= smoothie.photo %>" alt="" width ="150" height="120">
-
-      <%= form.simple_fields_for :order_items do |s| %>
-      <h3><%=smoothie.name%></h3>
-
-      <div class="smoothie__amount">
-        <% key = "smoothie_quantity" + smoothie.id.to_s %>
-        <%= s.input key.to_sym, selected: 0, collection: (0..7), label: "Quantity", required: false %>
-      </div>
-      <% end %>
-      <div class="btn btn-default" data-toggle="modal" data-target='<%= "#detox_description_#{smoothie.id}" %>'>Details</div>
-    </div>
-    <% end %>
-  </div>
-  <%= form.submit "Order", class: "btn btn-lg btn-center btn-success" %>
-  <% end %>
-</div>
-
-
-<% @smoothies.each do |smoothie| %>
-<div class="modal fade" id='<%= "detox_description_#{smoothie.id}" %>' tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-
-        <h5 class="modal-title" id="exampleModalLabel"><%=smoothie.name%></h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <%= smoothie.description %>
-        <div class="smoothie__ingredients">
-          <h2 class="smoothie__ingredients__title">Ingredients</h2>
-          <% smoothie.doses.each do |d| %>
-          <div class="smoothie__ingredient">
-            <%= d.ingredient.name %> <%= d.value%><%= d.unit%>
-          </div>
-          <% end %>
+  <div class="configure__sidebar">
+    <div class="selected-smoothies">
+      <div class="selected-smoothies__total">
+        <h3>Your selection</h3>
+        <div>You have selected
+          <span id="selected-smoothies__total">0</span>
+          of
+          <span id="selected-smoothies__max"><%= @order.smoothies_amount %></span>
+          smoothies
         </div>
       </div>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-
+      <div id="upgrade-banner" class="text-danger hidden">
+        Do you wan't to upgrade to a larger amount of Smoothies?
+      </div>
+      <div class="selected-smoothie__summary">
+        <ul id="selected-smoothie-list" class="list-group">
+        </ul>
+      </div>
     </div>
   </div>
-</div>
+
+  <div class="configure__content">
+    <div class="container">
+      <h1>Configure Your Basket</h1>
+      <%= simple_form_for :order, url: order_add_items_path(@order) do |form| %>
+
+      <div class="smoothies">
+        <% @smoothies.each do |smoothie| %>
+
+        <div class="smoothie">
+          <img src="<%= smoothie.photo %>" alt="" width ="150" height="120">
+
+          <%= form.simple_fields_for :order_items do |s| %>
+          <h3><%=smoothie.name%></h3>
+
+          <div class="smoothie__amount">
+            <% key = "smoothie_quantity" + smoothie.id.to_s %>
+            <%= s.input key.to_sym, selected: 0, collection: (0..7), label: "Quantity", required: false %>
+          </div>
+          <% end %>
+          <div class="btn btn-default" data-toggle="modal" data-target='<%= "#detox_description_#{smoothie.id}" %>'>Details</div>
+        </div>
+        <% end %>
+      </div>
+      <%= form.submit "Order", class: "btn btn-lg btn-center btn-success" %>
+      <% end %>
+    </div>
+  </div>
+
+
+
+  <% @smoothies.each do |smoothie| %>
+  <div class="modal fade" id='<%= "detox_description_#{smoothie.id}" %>' tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+
+          <h5 class="modal-title" id="exampleModalLabel"><%=smoothie.name%></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <%= smoothie.description %>
+          <div class="smoothie__ingredients">
+            <h2 class="smoothie__ingredients__title">Ingredients</h2>
+            <% smoothie.doses.each do |d| %>
+            <div class="smoothie__ingredient">
+              <%= d.ingredient.name %> <%= d.value%><%= d.unit%>
+            </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+
 </div>
 <% end %>
 <script>
+  const maxSmoothies = <%= raw @order.smoothies_amount.to_json %>;
   const totalSmoothies = <%= raw @smoothies.all().to_json %>;
+  const upgradeBanner = document.getElementById('upgrade-banner');
   let selectedSmoothies = {};
 
   totalSmoothies.forEach((smoothie, index) => {
+    const totalSelectedSmoothies = document.getElementById(
+      'selected-smoothies__total'
+      );
     const smoothieAmount = document.getElementById(
       `order_order_items_smoothie_quantity${index + 1}`
-    );
+      );
 
     smoothieAmount.addEventListener("change", (event) => {
       event.preventDefault();
       (event.target.value === '0')
-        ? delete selectedSmoothies[smoothie.name]
-        : selectedSmoothies[smoothie.name] = event.target.value;
+      ? delete selectedSmoothies[smoothie.name]
+      : selectedSmoothies[smoothie.name] = event.target.value;
 
       const selectedSmoothieList = document.getElementById(
         'selected-smoothie-list'
-      );
+        );
 
       while (selectedSmoothieList.firstChild) {
         selectedSmoothieList.removeChild(selectedSmoothieList.firstChild);
@@ -102,6 +122,20 @@
         `;
         selectedSmoothieList.appendChild(listItem);
       });
+
+      const countSelectedSmoothies = Object.values(selectedSmoothies).reduce((total, amount) => parseInt(total) + parseInt(amount));
+
+      totalSelectedSmoothies.innerHTML = countSelectedSmoothies;
+      if (countSelectedSmoothies > maxSmoothies) {
+        totalSelectedSmoothies.classList.add('text-danger');
+        totalSelectedSmoothies.classList.remove('text-success');
+        upgradeBanner.classList.remove('hidden');
+      } else {
+        totalSelectedSmoothies.classList.add('text-success');
+        totalSelectedSmoothies.classList.remove('text-danger');
+        upgradeBanner.classList.add('hidden');
+      }
     });
   });
+
 </script>

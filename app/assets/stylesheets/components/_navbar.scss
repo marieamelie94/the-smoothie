@@ -2,7 +2,6 @@
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
-  margin-bottom: 1rem;
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
   background: white;
   transition: all 0.3s ease;
@@ -10,7 +9,8 @@
   padding: 0px 30px;
   display: flex;
   text-decoration: none;
-
+  border-bottom: 1px solid #ddd;
+  z-index: 200000 !important;
 }
 .logo {
   text-decoration: none;
