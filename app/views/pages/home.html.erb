@@ -8,24 +8,23 @@
   <div class="section">
     <div class="container">
       <h2 class="section__title">Prep Instructions</h2>
-     <img src="https://res.cloudinary.com/mas-cloud/image/upload/v1543787052/the-smoothie/the-smoothie-banner.png" alt="">
+     <img id="instructions__banner" src="https://res.cloudinary.com/mas-cloud/image/upload/v1543787052/the-smoothie/the-smoothie-banner.png" alt="">
     </div>
   </div>
 
   <div class="section">
     <div class="container">
       <div>
-       <div class="col-sm-4"><img src="https://res.cloudinary.com/mas-cloud/image/upload/v1543587871/the-smoothie/animalrescue.png" alt="animalrescue"></div>
-
         <div class="col-sm-6"> <h4 class="headline--donation">We donate 5% of our annual profit to animal rescue</h4></div>
+       <div class="col-sm-4"><img class="rescue__logo"src="https://res.cloudinary.com/mas-cloud/image/upload/v1543587871/the-smoothie/animalrescue.png" alt="animalrescue"></div>
       </div>
     </div>
   </div>
 
   <div class="section">
     <div class="container">
-      <div class="button">
-      <%= link_to 'Get Started', page_path("choose-amount"), class: "btn btn-lg btn-success b1" %>
+      <div class="button" style="display: flex; justify-content: center;">
+      <%= link_to 'Get Started', page_path("choose-amount"), class: "btn-lg btn-success b1" %>
       </div>
     </div>
   </div>
