@@ -19,6 +19,7 @@
   font-size: 30px;
   color: #AA4475;
   text-align:center;
+
 }
 
 .logo:hover{
@@ -84,7 +85,13 @@ margin-bottom: 10px;
 
 
 }
-
+.dropbtn:hover {
+  background-color: #F4F4F4;
+  color: #F4F4F4;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+}
 /* Links inside the dropdown */
 .dropdown-content a {
     color: black;
