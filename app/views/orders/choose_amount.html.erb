@@ -15,6 +15,9 @@
     <div class="amount__selected-info-bottom">
       Smoothies
     </div>
+     <div id="price_amount__selected" class="amount__selected">
+      0
+    </div>
 
     <div class="amount__measure">
       <span>7</span>
@@ -30,8 +33,6 @@
        min:"7", max:"28", step:"7", value:7, name:"amount"} %>
       <%= f.submit'Create Your Basket', class: 'btn-center btn btn-lg btn-success' %>
       <% end %>
-
-      <!-- <input type="range" id="amount" name="amount" min="7" max="28" step="7" value="7"> -->
     </div>
 
   </div>
@@ -43,10 +44,19 @@
 <script>
   const amount = document.getElementById("amount");
   const selected_amount = document.getElementById("amount__selected");
+  const price_amount__selected = document.getElementById("price_amount_selected");
   amount.addEventListener("change", (event) => {
       event.preventDefault();
       selected_amount.innerHTML = event.target.value;
-
+      if (event.target.value === 7) {
+        price_selected_amount.innerHTML = "6,5€/smoothie";
+      } else if (event.target.value === 14) {
+        price_selected_amount.innerHTML = "5,5€/smoothie";
+      } else if (event.target.value === 21) {
+        price_selected_amount.innerHTML = "4,5€/smoothie";
+      } else {
+        price_selected_amount.innerHTML = "4€/smoothie";
+      }
   });
 
 </script>

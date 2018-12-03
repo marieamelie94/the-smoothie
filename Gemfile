@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 ruby '2.4.4'
 
+gem 'stripe'
+gem 'money-rails'
 gem 'bootsnap', require: false
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'

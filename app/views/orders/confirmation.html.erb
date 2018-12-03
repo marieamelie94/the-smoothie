@@ -45,8 +45,10 @@
     <div class="payment-info col-sm-4">
       <div class="form confirmation-box">
         <h3>Payment</h3>
-          <%= link_to 'Pay', '/pages/checkout', class: "btn btn-default" %>
-
+        <div>
+          <%= render 'payments/new'%>
+        </div>
+          <%#= link_to 'Pay',new_order_payment_path(@order) , class: "btn btn-default" %>
       </div>
     </div>
 

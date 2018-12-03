@@ -1,11 +1,26 @@
 class OrdersController < ApplicationController
+  def show
+    @order = Order.find(params[:id])
+  end
+
   def new
     @order = Order.new
     @order.build_order_items
   end
 
   def create
-    @order = Order.new(user_id: current_user.id, smoothies_amount: params[:amount])
+    @order = Order.new(user_id: current_user.id)
+    smoothies_price_cents = 0
+    smoothies_amount = params[:amount]
+    case smoothies_amount
+        when "7" then smoothies_price_cents = 650
+        when "14" then smoothies_price_cents = 550
+        when "21" then smoothies_price_cents = 450
+        when "28 "then smoothies_price_cents = 400
+    end
+    @order.smoothies_amount = smoothies_amount
+    @order.smoothies_price_cents = smoothies_price_cents
+    @order.total_smoothies_price_cents = smoothies_price_cents * smoothies_amount.to_i
     if @order.save
       redirect_to order_configure_path(@order)
     else
@@ -51,6 +66,6 @@ class OrdersController < ApplicationController
   end
 
   def order_delivery_params
-    params.require(:order).permit(:delivery_address, :delivery_date, :delivery_time_period)
+    params.require(:order).permit(:smoothies_price_cents, :delivery_address, :delivery_date, :delivery_time_period)
   end
 end
