@@ -14,10 +14,10 @@
 </div>
 
 <div>
-  <h4>Will be delivered in <% @order.delivery_address %> on <% @order.delivery_date %> between <% @order.delivery_time_period %>
+  <h4>Will be delivered in <%= @order.delivery_address %> on <%= @order.delivery_date %> between <%= @order.delivery_time_period %>
 
   </h4>
-
+<dt id="terms">   <strong> <%= link_to "Home", root_path, class: "btn btn-lg btn-success" %> </strong></div></p></dt>
 </div>
 
 </div>
