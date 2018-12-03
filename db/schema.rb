@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_02_162806) do
+ActiveRecord::Schema.define(version: 2018_12_03_130646) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,6 +93,9 @@ ActiveRecord::Schema.define(version: 2018_12_02_162806) do
     t.date "delivery_date"
     t.string "delivery_time_period"
     t.integer "smoothies_amount"
+    t.integer "smoothies_price_cents", default: 0, null: false
+    t.integer "total_smoothies_price_cents", default: 0, null: false
+    t.jsonb "payment"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 

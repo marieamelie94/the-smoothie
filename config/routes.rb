@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   get '/preferences' => 'preferences#edit'
 
   resources :users, only: [:show, :edit, :update]
-  resources :orders
+  resources :orders do
+    resources :payments, only: [:new, :create]
+  end
   get '/smoothies/:order_id/configure', to: 'orders#configure', as: :order_configure
   post '/orders/:order_id/add_items', to: 'orders#add_items', as: :order_add_items
   get '/orders/:order_id/confirmation', to: 'orders#confirmation', as: :order_confirmation

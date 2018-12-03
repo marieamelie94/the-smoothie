@@ -1,0 +1,25 @@
+<div class="container">
+<h1>Thank you</h1>
+
+<div>
+  <h3>Your Order</h3>
+  <% @order.order_items.each do |item| %>
+    <% next if item.smoothie_quantity == 0 %>
+    <% smoothie = Smoothie.find(item.smoothie_id) %>
+   <ul>
+     <li><%= item.smoothie_quantity %> <%= smoothie.name %></li>
+   </ul>
+
+  <% end %>
+</div>
+
+<div>
+  <h4>Will be delivered in <% @order.delivery_address %> on <% @order.delivery_date %> between <% @order.delivery_time_period %>
+
+  </h4>
+
+</div>
+
+</div>
+
+
