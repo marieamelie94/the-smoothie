@@ -1,25 +1,53 @@
 <div class="container">
-<h1>Thank you</h1>
+  <h1>Thank you</h1>
+  <div class="recap-wrapper">
 
-<div>
-  <h3>Your Order</h3>
-  <% @order.order_items.each do |item| %>
-    <% next if item.smoothie_quantity == 0 %>
-    <% smoothie = Smoothie.find(item.smoothie_id) %>
-   <ul>
-     <li><%= item.smoothie_quantity %> <%= smoothie.name %></li>
-   </ul>
+  <div class='col-sm-6'>
+    <div class=" form recap-box">
+      <div class="recap-icon"> <img src="https://res.cloudinary.com/mas-cloud/image/upload/v1543926979/the-smoothie/box-green.png" width="48px" alt="box"> </div>
+      <p><strong>Your Smoothies:</strong></p>
+      <% @order.order_items.each do |item| %>
+        <% next if item.smoothie_quantity == 0 %>
+        <% smoothie = Smoothie.find(item.smoothie_id) %>
+       <ul>
+         <li><%= item.smoothie_quantity %> <%= smoothie.name %></li>
+       </ul>
+      <% end %>
 
-  <% end %>
+    </div>
+  </div>
+
+  <div class='col-sm-6'>
+    <div class="form recap-box">
+     <div class="recap-icon"><img src="https://res.cloudinary.com/mas-cloud/image/upload/v1543926448/the-smoothie/bike-green.png" alt="" width="48px"> <!-- <i class="fas fa-map-marker-alt"> --></i></div>
+     <table>
+      <tr>
+         <td><strong>Will be delivered at:</strong></td>
+         <td><%= @order.delivery_address %></td>
+      </tr>
+      <tr>
+        <td><strong>On:</strong></td>
+        <td><%= @order.delivery_date.strftime("%B %d, %Y") %></td>
+      </tr>
+      <tr>
+        <td><strong>Time period:</strong></td>
+        <td><%= @order.delivery_time_period %></td>
+      </tr>
+     </table>
+
+  </div>
+  </div>
+
+  <div class=" recap-bottom col-sm-12">
+    <div class="home-btn">
+      <%= link_to "Home", root_path, class: "btn btn-xs btn-success" %>
+    </div>
+  </div>
+
+</div>
 </div>
 
-<div>
-  <h4>Will be delivered in <%= @order.delivery_address %> on <%= @order.delivery_date %> between <%= @order.delivery_time_period %>
-
-  </h4>
-<dt id="terms">   <strong> <%= link_to "Home", root_path, class: "btn btn-lg btn-success" %> </strong></div></p></dt>
 </div>
 
-</div>
 
 
