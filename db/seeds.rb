@@ -10,18 +10,18 @@ p "creating stuff ..."
 
 user1 = User.create!(first_name: "Marie Amelié", last_name: "Sandrock", email:"mas@gmail.com", password:"secret")
 
-avocado = Ingredient.create!(name: "Avocado")
-spinach = Ingredient.create!(name: "Spinach")
-pineapple = Ingredient.create!(name: "Pineapple")
-turmeric = Ingredient.create!(name: "Turmeric")
-flaxseed = Ingredient.create!(name: "Flaxseed")
-coconut_water = Ingredient.create!(name: "Coconut Water")
-wheatgrass = Ingredient.create!(name: "Wheatgrass")
-beets_frozen = Ingredient.create!(name: "Beets frozen")
-cucumber_frozen = Ingredient.create!(name:"Cucumber frozen")
-banana_frozen = Ingredient.create!(name:"Banana Frozen")
-rice_cococnut_milk = Ingredient.create!(name:"Rice Coconut Milk")
-strawberry = Ingredient.create!(name:"Strawberry")
+avocado = Ingredient.create!(name: "Avocado", photo:"https://res.cloudinary.com/mas-cloud/image/upload/v1543411319/the-smoothie/avocados.png")
+spinach = Ingredient.create!(name: "Spinach", photo:"https://res.cloudinary.com/mas-cloud/image/upload/v1543411336/the-smoothie/spinach.png")
+pineapple = Ingredient.create!(name: "Pineapple", photo:"https://res.cloudinary.com/mas-cloud/image/upload/v1543411321/the-smoothie/pineapple.png")
+turmeric = Ingredient.create!(name: "Turmeric", photo:"https://res.cloudinary.com/mas-cloud/image/upload/v1543405809/the-smoothie/Screen_Shot_2018-11-09_at_15.47.28.png")
+flaxseed = Ingredient.create!(name: "Flaxseed", photo:"https://res.cloudinary.com/mas-cloud/image/upload/v1543411318/the-smoothie/soy-protein.png")#edit
+coconut_water = Ingredient.create!(name: "Coconut Water", photo:"https://res.cloudinary.com/mas-cloud/image/upload/v1543411318/the-smoothie/soy-protein.png") #edit
+wheatgrass = Ingredient.create!(name: "Wheatgrass", photo:"https://res.cloudinary.com/mas-cloud/image/upload/v1543411332/the-smoothie/wheatgrass-powder.png")
+beets_frozen = Ingredient.create!(name: "Beets frozen", photo:"https://res.cloudinary.com/mas-cloud/image/upload/v1543411290/the-smoothie/beets.png")
+cucumber_frozen = Ingredient.create!(name:"Cucumber frozen", photo:"https://res.cloudinary.com/mas-cloud/image/upload/v1543411335/the-smoothie/cucumbers.png")
+banana_frozen = Ingredient.create!(name:"Banana Frozen", photo:"https://res.cloudinary.com/mas-cloud/image/upload/v1543406481/the-smoothie/banana.jpg")
+rice_cococnut_milk = Ingredient.create!(name:"Rice Coconut Milk", photo:"") #edit
+strawberry = Ingredient.create!(name:"Strawberry", photo: "https://res.cloudinary.com/mas-cloud/image/upload/v1543405815/the-smoothie/strawberry.png")
 
 
 
