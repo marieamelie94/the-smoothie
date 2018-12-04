@@ -26,6 +26,10 @@ body:not(.user-is-tabbing) textarea:focus {
   outline: none;
 }
 
+body {
+  background: white;
+}
+
 h1 {
   text-align: center;
 }
