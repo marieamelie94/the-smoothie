@@ -1,8 +1,7 @@
-
-<%= simple_form_for Allergy.new do |f| %>
+<%= simple_form_for Dislike.new do |f| %>
     <div >
-      <%= f.input :ingredient,
-      label: "Allergies",
+      <%= f.input :ingredients,
+      label: "Dislikes",
       # Ingredient.where(name: "Flaxseed"),
       # label_method: :name,
       # value_method: :id,
@@ -10,14 +9,13 @@
       # input_html: { class: "" }
       collection: [
         ['Soy', 'Soy'],
-        ['Dairy milk', 'Dairy milk'],
+        ['Cow milk', 'Cow milk'],
         ['Nuts', 'Nuts'],
         ['Peanuts', 'Peanuts'],
-        ['Flaxseed', 'Flaxseed'],
 
       ],
-      as: :check_boxes,
-      :disable_with => true
+      as: :check_boxes
+      # selected: 0,
       # label_method: :second,
 
       # value_method: :first
@@ -26,5 +24,4 @@
       <%= f.submit 'Add', class: 'btn btn-default' %>
 
 <% end %>
-
 </div>

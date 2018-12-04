@@ -1,86 +1,95 @@
  <div class="edit-preferences">
 
-  <div class="container">
 
-    <h2>Let us know about yourself</h2>
+    <div class="layout">
 
-    <div class="preferences-form">
-     <% if user_signed_in? %>
-     <%= simple_form_for @user do |f| %>
+      <div class="content">
+         <div class="container">
+        <h2>Let us know about yourself</h2>
 
-      <strong><div class="value__selected-info-top">
-        Age:
-      </div></strong>
-      <div id="age__selected" class="value__selected">
-        30
-      </div>
-     <%= f.input :age, as: :range, label: false,
-      input_html: { id:"age",
-      min:18, max:98, step:1, value:30} %>
+        <div class="preferences-form">
+         <% if user_signed_in? %>
+         <%= simple_form_for @user do |f| %>
 
-      <strong><div class="value__selected-info-top">
-        Weight:
-      </div></strong>
-      <div id="weight__selected" class="value__selected">
-        50
-      </div>
-     <%= f.input :weight, as: :range, label: false,
-      input_html: { id:"weight",
-      min:"30", max:"140", step:"1", value:50} %>
+          <strong><div class="value__selected-info-top">
+            Age:
+          </div></strong>
+          <div id="age__selected" class="value__selected">
+            30
+          </div>
+         <%= f.input :age, as: :range, label: false,
+          input_html: { id:"age",
+          min:18, max:98, step:1, value:30} %>
 
-      <strong><div class="value__selected-info-top">
-        Height:
-      </div></strong>
-      <div id="height__selected" class="value__selected">
-        160
-      </div>
-      <%= f.input :height, as: :range, label: false,
-      input_html: { id:"height",
-      min:"60", max:"220", step:"1", value:160} %>
+          <strong><div class="value__selected-info-top">
+            Weight:
+          </div></strong>
+          <div id="weight__selected" class="value__selected">
+            50
+          </div>
+         <%= f.input :weight, as: :range, label: false,
+          input_html: { id:"weight",
+          min:"30", max:"140", step:"1", value:50} %>
 
+          <strong><div class="value__selected-info-top">
+            Height:
+          </div></strong>
+          <div id="height__selected" class="value__selected">
+            160
+          </div>
+          <%= f.input :height, as: :range, label: false,
+          input_html: { id:"height",
+          min:"60", max:"220", step:"1", value:160} %>
 
-     <div class="value__selected-info-top form-check form-check-inline">
-        <%= f.input :gender, as: :radio_buttons,
-      input_html: {class: "form-check-input" },
-      collection: [
-        ['female', 'Female'],
-        ['male', 'Male'],
-        ['other', 'Other']
-      ],
-      selected: 0,
-      label_method: :second,
-      label_html: {class: "form-check-label"},
-      value_method: :first
-      %>
-    </div>
+        <div class="content-bottom">
+           <div class="content-bottom-element ">
+              <%= f.input :gender, as: :radio_buttons,
+            input_html: {class: "form-check-input" },
+            collection: [
+              ['female', 'Female'],
+              ['male', 'Male'],
+              ['other', 'Other']
+            ],
+            selected: 0,
+            label_method: :second,
+            label_html: {class: "form-check-label"},
+            value_method: :first
+            %>
+          </div>
 
-    <div class="value__selected-info-top">
-      <%= f.input :goal, as: :radio_buttons,
-      input_html: { class: "" },
-      collection: [
-        ['detox', 'Detox'],
-        ['weight-loss', 'Weight Loss'],
-        ['muscle', 'Muscle'],
-        ['immune', 'Immune'],
-        ['energy', 'Energy'],
-      ],
-      selected: 0,
-      label_method: :second,
-      value_method: :first
-      %>
-    </div>
-
-    <button class="testbtn">qqqqq</button>
-
+          <div class="content-bottom-element">
+            <%= f.input :goal, as: :radio_buttons,
+            input_html: { class: "" },
+            collection: [
+              ['detox', 'Detox'],
+              ['weight-loss', 'Weight Loss'],
+              ['muscle', 'Muscle'],
+              ['immune', 'Immune'],
+              ['energy', 'Energy'],
+            ],
+            selected: 0,
+            label_method: :second,
+            value_method: :first
+            %>
+          </div>
+        </div>
     <%= f.submit 'Done', class: 'testbtn btn btn-lg btn-success' %>
-    <% end %>
+      </div>
 
- <div class="value__selected-info-top">
-      <%= render 'allergies/new' %>
     </div>
-
-
-
+    <% end %>
+  </div>
+    <div class="sidebar">
+      <div class="">
+        <%= render 'allergies/new' %>
+      </div>
+      <div class="">
+        <%= render 'dislikes/new' %>
+      </div>
+      <div class="">
+        <%= render 'likes/new' %>
+      </div>
+    </div>
   </div>
 
   <% else %>
@@ -89,8 +98,6 @@
   <!-- Create a new user instance -->
   <%= link_to 'Configure', smoothies_configure_path, class: "btn btn-default" %>
   <% end %>
-
-</div>
 
 <script>
 
