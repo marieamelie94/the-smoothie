@@ -40,8 +40,8 @@
 
 
      <div class="value__selected-info-top form-check form-check-inline">
-        <%= f.input :gender, as: :radio_buttons,
-      input_html: {class: "form-check-input" },
+        <%= f.input :gender, as: :radio_buttons, item_wrapper_class: 'radio-inline', label: "Gender",
+      input_html: {class: "form-check-input"},
       collection: [
         ['female', 'Female'],
         ['male', 'Male'],
@@ -55,7 +55,7 @@
     </div>
 
     <div class="value__selected-info-top">
-      <%= f.input :goal, as: :radio_buttons,
+      <%= f.input :goal, as: :radio_buttons, item_wrapper_class: 'radio-inline', label: "Goal",
       input_html: { class: "" },
       collection: [
         ['detox', 'Detox'],
