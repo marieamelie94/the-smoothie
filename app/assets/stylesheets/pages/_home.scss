@@ -15,7 +15,7 @@
 }
 
 .rescue__logo {
-  margin-left: 350px;
+  margin-left: 150px;
 }
 
 .b1 {
@@ -44,18 +44,13 @@
 
 .section-lead {
   padding: 48px 0;
+  background: white;
 }
 
 
 .section {
   padding: 80px 0;
 
-  &:nth-child(odd) {
-    background: #f5f5f5;
-  }
-  &:nth-child(even) {
-    background: #fff;
-  }
   .section__title {
     text-align: center;
     text-transform: uppercase;
@@ -167,4 +162,8 @@
   100% {fill:rgb(255, 100, 100); color:rgb(255, 100, 100);}
 }
 
-
+.headline--donation {
+  text-align: initial;
+  margin-left: 70px;
+  margin-top: 34px;
+}
