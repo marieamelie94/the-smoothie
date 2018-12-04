@@ -1,0 +1,23 @@
+
+<%= simple_form_for Allergy.new do |f| %>
+    <div class="value__selected-info-top">
+      <%= f.association :ingredient,
+      label_method: :name,
+      value_method: :id, include_blank: false,
+      label: "Allergies",
+      input_html: { class: "autocomplete" }
+      # collection: [
+      #   ['detox', 'Detox'],
+      #   ['weight-loss', 'Weight Loss'],
+      #   ['muscle', 'Muscle'],
+      #   ['immune', 'Immune'],
+      #   ['energy', 'Energy'],
+      # ],
+      # selected: 0,
+      # label_method: :second,
+
+      # value_method: :first
+      %>
+      <%= f.submit 'Add', class: 'btn btn-lg btn-success' %>
+
+<% end %>
