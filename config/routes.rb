@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get '/preferences' => 'preferences#edit'
 
   resources :allergies, only: [:new, :create]
+  resources :likes, only: [:new, :create]
+  resources :dislikes, only: [:new, :create]
   resources :users, only: [:show, :edit, :update]
   resources :orders do
     resources :payments, only: [:new, :create]
