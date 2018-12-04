@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/pages/:page' => 'pages#show', as: :page
   get '/preferences' => 'preferences#edit'
 
+  resources :allergies, only: [:new, :create]
   resources :users, only: [:show, :edit, :update]
   resources :orders do
     resources :payments, only: [:new, :create]

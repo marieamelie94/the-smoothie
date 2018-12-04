@@ -3,6 +3,7 @@
   <div class="container">
 
     <h2>Let us know about yourself</h2>
+
     <div class="preferences-form">
      <% if user_signed_in? %>
      <%= simple_form_for @user do |f| %>
@@ -69,8 +70,15 @@
       %>
     </div>
 
-    <%= f.submit 'Done', class: 'btn btn-lg btn-success' %>
+    <button class="testbtn">qqqqq</button>
+
+    <%= f.submit 'Done', class: 'testbtn btn btn-lg btn-success' %>
     <% end %>
+
+ <div class="value__selected-info-top">
+      <%= render 'allergies/new' %>
+    </div>
+
 
 
   </div>
@@ -85,6 +93,14 @@
 </div>
 
 <script>
+
+  // document.querySelector(".testbtn").addEventListener("click", event => {
+  //   console.log("hello")
+  //   document.querySelectorAll("form").forEach(form => {
+  //     form.submit()
+  //   })
+  // })
+
   const age = document.getElementById("age");
   const selected_age = document.getElementById("age__selected");
   age.addEventListener("change", (event) => {
