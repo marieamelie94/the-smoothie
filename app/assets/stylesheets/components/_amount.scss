@@ -12,14 +12,18 @@
     justify-content: space-between;
   }
 
-  &__bar {
-
-  }
-
   &__selected {
     font-size: 80px;
-    color: $pink;
+    color: $baby-blue;
     text-align: center;
+  }
+
+  .price_amount__selected {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 24px;
+    color: $pink;
+    text-align: center !important;
   }
 
   &__selected-info-top {

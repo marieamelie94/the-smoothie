@@ -12,11 +12,8 @@
       7
     </div>
 
-    <div class="amount__selected-info-bottom">
-      Smoothies
-    </div>
-     <div id="price_amount__selected" class="amount__selected">
-      6,5€/Smoothie
+     <div id="price_amount__selected" class="price_amount__selected">
+      €6.50 per Smoothie
     </div>
 
     <div class="amount__measure">
@@ -49,13 +46,13 @@
       event.preventDefault();
       selected_amount.innerHTML = event.target.value;
       if (event.target.value === "7") {
-        price_amount_selected.innerHTML = "6,5€/Smoothie";
+        price_amount_selected.innerHTML = "€6.50 per Smoothie";
       } else if (event.target.value === "14") {
-        price_amount_selected.innerHTML = "5,5€/Smoothie";
+        price_amount_selected.innerHTML = "€5.50 per Smoothie";
       } else if (event.target.value === "21") {
-        price_amount_selected.innerHTML = "4,5€/Smoothie";
+        price_amount_selected.innerHTML = "€4.50 per Smoothie";
       } else {
-        price_amount_selected.innerHTML = "4€/Smoothie";
+        price_amount_selected.innerHTML = "€4.00 per Smoothie";
       }
   });
 
