@@ -1,8 +1,13 @@
 
 .confirmation-box {
-height: 88vh;
+height: 80vh;
+margin-top: 20px;
 }
 
 abbr[title="required"] {
   display: none;
+}
+
+ .ap-icon-clear .ap-icon-pin {
+  background-color: transparent !important;
 }

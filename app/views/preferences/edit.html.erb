@@ -10,7 +10,7 @@
       <div class="preferences-form">
        <% if user_signed_in? %>
        <%= simple_form_for @user do |f| %>
-
+        
        <strong><div class="value__selected-info-top">
         Age:
       </div></strong>
@@ -39,7 +39,9 @@
           </div>
           <%= f.input :height, as: :range, label: false,
           input_html: { id:"height",
+
             min:"60", max:"220", step:"1", value:160} %>
+
 
             <div class="content-bottom">
              <div class="content-bottom-element ">
