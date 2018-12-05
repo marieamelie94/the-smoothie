@@ -46,3 +46,22 @@
   border-top: 1px solid #ddd;
   padding: 1rem;
 }
+
+.smoothie-dose__ingredient {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #ddd;
+
+  .smoothie-dose__details {
+    padding: 1rem;
+  }
+
+  .ingredient__name {
+
+  }
+
+  .ingredient__photo img {
+    width: 160px;
+    height: auto;
+  }
+}
