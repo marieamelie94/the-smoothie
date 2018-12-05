@@ -38,6 +38,48 @@
     background: #fff;
     border-radius: 5px;
     text-align: center;
-    box-shadow: 0px 3px 3px #C44E88;
-    border-top: 0.5px solid #C44E88;
+    box-shadow: 0px 3px 3px #c44e886e!important;
+
+    // border-top: 0.5px solid #C44E88;
+}
+
+#sbtm {
+  background-color: white!important;
+  color:#AA4475 !important;
+}
+
+#sbtm:hover{
+  background-color: #AA4475!important;
+  color:white!important;
+}
+
+.smoothie__ingredients__title {
+  font-size: 25px;
+}
+
+#xampleModalLabel {
+  font-weight: bold;
+}
+
+.ingredient_photo_popup {
+  border-radius:50%;
+  margin-right: 10px;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  position: relative;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+    padding: 0px;
+    background: white;
+}
+
+.smoothie__ingredients__title{
+  font-weight: bold;
+  text-align:center;
+  margin-top: -5px;
+  color:#e82982;
+}
+
+.smoothie-dose__ingredient {
+  margin-top: 18px;
+    margin-bottom: 20px;
 }

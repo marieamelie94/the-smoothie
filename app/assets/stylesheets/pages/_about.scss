@@ -6,16 +6,16 @@
   text-align: center;
   background-image: linear-gradient(0deg, white 50%, #F4F4F4 50%);
   img {
-    width: 250px;
+    width: 200px!important;
     box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
-    height: 250px;
+    height: 200px!important;
     object-position: 38%;
     object-fit: cover;
   }
 
   h1 {
     font-size: 30px;
-    font-weight: bolder;
+    font-weight: bold;
     margin-bottom: 30px;
     margin-top: 0px;
     color: rgba(0,0,0,0.5);
@@ -42,10 +42,12 @@
   }
   .a {
     color: #B72886;
+    font-size:18px;
   }
 }
   .title {
     color: #626262;
+    font-weight: 100;
   }
 
 

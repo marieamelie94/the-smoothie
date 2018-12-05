@@ -40,8 +40,27 @@
             <% key = "smoothie_quantity" + smoothie.id.to_s %>
             <%= s.input key.to_sym, selected: 0, collection: (0..7), label: "Quantity", required: false %>
           </div>
+
+<!--
+
+
+          <div class="form-group">
+        <label>Quantity: </label>
+        <div class="input-group">
+            <div class="input-group-btn">
+                <button id="down" class="btn btn-default" onclick=" down('0')"><span class="glyphicon glyphicon-minus"></span></button>
+            </div>
+            <input type="text" id="myNumber" class="form-control input-number" value="0" />
+            <div class="input-group-btn">
+                <button id="up" class="btn btn-default" onclick="up('10')"><span class="glyphicon glyphicon-plus"></span></button>
+            </div>
+        </div>
+    </div>
+ -->
+
+
           <% end %>
-          <div class="btn btn-default" data-toggle="modal" data-target='<%= "#detox_description_#{smoothie.id}" %>'>Details</div>
+          <div class="btn btn-default" id="sbtm" data-toggle="modal" data-target='<%= "#detox_description_#{smoothie.id}" %>'>Details</div>
         </div>
         <% end %>
       </div>
@@ -64,7 +83,7 @@
           <%= smoothie.description %>
         </div>
         <div class="modal-body">
-          <div class="smoothie__ingredients">
+          <div class="smoothie__ingredientss">
             <h2 class="smoothie__ingredients__title">Ingredients</h2>
             <% smoothie.doses.each do |d| %>
             <div class="smoothie-dose__ingredient">
@@ -77,7 +96,7 @@
                 </div>
               </div>
               <div class="ingredient__photo">
-                <img src="<%= d.ingredient.photo %>" alt="">
+                <img src="<%= d.ingredient.photo %>" alt="" class="ingredient_photo_popup">
               </div>
             </div>
             <% end %>
@@ -155,3 +174,21 @@
   })
 
 </script>
+<!--
+<script type="text/javascript">
+
+function up(max) {
+    document.getElementById("myNumber").value = parseInt(document.getElementById("myNumber").value) + 1;
+    if (document.getElementById("myNumber").value >= parseInt(max)) {
+        document.getElementById("myNumber").value = max;
+    }
+}
+function down(min) {
+    document.getElementById("myNumber").value = parseInt(document.getElementById("myNumber").value) - 1;
+    if (document.getElementById("myNumber").value <= parseInt(min)) {
+        document.getElementById("myNumber").value = min;
+    }
+}
+
+</script>
+ -->
