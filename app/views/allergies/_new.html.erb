@@ -1,0 +1,30 @@
+
+<%= simple_form_for Allergy.new do |f| %>
+    <div >
+      <%= f.input :ingredient,
+      label: "Allergies",
+      # Ingredient.where(name: "Flaxseed"),
+      # label_method: :name,
+      # value_method: :id,
+      # label: false,
+      # input_html: { class: "" }
+      collection: [
+        ['Flaxseed', 'Soy'],
+        ['Flaxseed', 'Dairy'],
+        ['Flaxseed', 'Nuts'],
+        ['Flaxseed', 'Peanuts'],
+        ['Flaxseed', 'Flaxseed'],
+
+      ],
+      as: :check_boxes,
+      # :disable_with => true
+      label_method: :second,
+
+      value_method: :first
+      %>
+
+      <%= f.submit 'Add', class: 'btn btn-default' %>
+
+<% end %>
+
+</div>

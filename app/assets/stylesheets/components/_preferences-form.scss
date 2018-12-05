@@ -1,8 +1,43 @@
+
+
 .edit-preferences {
   h2 {
     text-align: center;
     margin-bottom: 48px;
   }
+
+  .content {
+    width: 100%;
+  }
+
+  .sidebar {
+    width: 100%;
+    max-width: 100%;
+    padding: 12px;
+
+    .side-element {
+      margin-top: 36px;
+    }
+  }
+
+  @media(min-width: 767px) {
+    .layout {
+      display: flex;
+    }
+    .sidebar {
+      max-width: 320px;
+    }
+  }
+
+  .content-bottom {
+    display: flex;
+
+    .content-bottom-element{
+      padding:12px;
+      margin: 26px auto 6px auto;
+    }
+  }
+
 }
 
 .preferences-form {
