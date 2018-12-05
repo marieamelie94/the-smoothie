@@ -67,9 +67,18 @@
           <div class="smoothie__ingredients">
             <h2 class="smoothie__ingredients__title">Ingredients</h2>
             <% smoothie.doses.each do |d| %>
-            <div class="smoothie__ingredient">
-              <%= d.ingredient.name %> <%= d.value%><%= d.unit%>
-              <img src="<%= d.ingredient.photo %>" alt="" width ="150" height="120">
+            <div class="smoothie-dose__ingredient">
+              <div class="smoothie-dose__details">
+                <h4 class="ingredient__name">
+                  <%= d.ingredient.name %> <%= d.value%><%= d.unit%>
+                </h4>
+                <div class="ingredient__details">
+                  <%= d.ingredient.description || "#{d.ingredient.name} description coming soon..." %>
+                </div>
+              </div>
+              <div class="ingredient__photo">
+                <img src="<%= d.ingredient.photo %>" alt="">
+              </div>
             </div>
             <% end %>
           </div>
