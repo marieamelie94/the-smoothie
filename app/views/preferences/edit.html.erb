@@ -10,10 +10,12 @@
       <div class="preferences-form">
        <% if user_signed_in? %>
        <%= simple_form_for @user do |f| %>
-        
-       <strong><div class="value__selected-info-top">
-        Age:
-      </div></strong>
+
+       <strong>
+        <div class="value__selected-info-top">
+          Age:
+        </div>
+      </strong>
       <div id="age__selected" class="value__selected">
         30
       </div>
@@ -44,6 +46,7 @@
 
 
             <div class="content-bottom">
+
              <div class="content-bottom-element ">
               <%= f.input :gender, as: :radio_buttons,
               input_html: {class: "form-check-input" },
@@ -75,106 +78,96 @@
             </div>
           </div>
 
-          <%= f.simple_fields_for @allergy do |al| %>
-          <%= al.input :ingredient,
-          label: "Allergies",
+          <div class="user-presets">
+            <div class="allergies">
 
-      collection: [
-        ['Flaxseed', 'Soy'],
-        ['Spinach', 'Dairy'],
-        ['Turmeric', 'Nuts'],
-        ['Banana', 'Peanuts'],
-        ['Strawberry', 'Flaxseed'],
+              <label class="check_boxes optional form-check-label">Allergies</label>
+              <%= f.simple_fields_for @allergy do |al| %>
+              <%= al.input :ingredient,
+              label: "Allergies",
+              collection: [
+                ['Flaxseed', 'Soy'],
+                ['Spinach', 'Dairy'],
+                ['Turmeric', 'Nuts'],
+                ['Banana', 'Peanuts'],
+                ['Strawberry', 'Flaxseed'],
 
-      ],
-      as: :check_boxes,
-      # :disable_with => true
-      label_method: :second,
+              ],
+              as: :check_boxes,
+              label_method: :second,
+              value_method: :first
+              %>
+              <% end %>
+              <div class="input-allergies-other">
+                <label for="">Other allergies</label>
+                <input type="text" class="form-control">
+              </div>
+            </div>
 
-      value_method: :first
-      %>
-      <% end %>
+            <div class="likes">
+              <label class="check_boxes optional form-check-label">Likes</label>
+              <%= f.simple_fields_for Like.new do |l| %>
+              <%= l.input :ingredient,
+              label: "Likes",
+              collection: [
+                ['Strawberry', 'Berries'],
+                ['Flaxseed', 'Nuts'],
+                ['Spinach', 'Greens'],
+                ['Turmeric', 'Spices'],
+                ['Banana', 'Banana'],
+                ['Avocado', 'Avocado']
 
+              ],
+              as: :check_boxes,
+              label_method: :second,
+              value_method: :first
+              %>
+              <% end %>
+              <div class="input-likes-other">
+                <label for="">Other likes</label>
+                <input type="text" class="form-control">
+              </div>
+            </div>
 
-      <%= f.simple_fields_for Dislike.new do |di| %>
-      <%= di.input :ingredient,
-      label: "Dislikes",
-      # Ingredient.where(name: "Flaxseed"),
-      # label_method: :name,
-      # value_method: :id,
-      # label: false,
-      # input_html: { class: "" }
-      collection: [
-        ['Strawberry', 'Berries'],
-        ['Flaxseed', 'Nuts'],
-        ['Spinach', 'Greens'],
-        ['Turmeric', 'Spices'],
-        ['Banana', 'Banana'],
-        ['Avocado', 'Avocado']
-      ],
-      as: :check_boxes,
-      # selected: 0,
-      label_method: :second,
+            <div class="dislikes">
+              <label class="check_boxes optional form-check-label">Dislikes</label>
+              <%= f.simple_fields_for Dislike.new do |di| %>
+              <%= di.input :ingredient,
+              label: "Dislikes",
+              collection: [
+                ['Strawberry', 'Berries'],
+                ['Flaxseed', 'Nuts'],
+                ['Spinach', 'Greens'],
+                ['Turmeric', 'Spices'],
+                ['Banana', 'Banana'],
+                ['Avocado', 'Avocado']
+              ],
+              as: :check_boxes,
+              label_method: :second,
+              value_method: :first
+              %>
+              <% end %>
+              <div class="input-dislikes-other">
+                <label for="">Other dislikes</label>
+                <input type="text" class="form-control">
+              </div>
 
-      value_method: :first
-      %>
-    <% end %>
-
-    <%= f.simple_fields_for Like.new do |l| %>
-    <div >
-      <%= l.input :ingredient,
-      label: "Likes",
-      # Ingredient.where(name: "Flaxseed"),
-      # label_method: :name,
-      # value_method: :id,
-      # label: false,
-      # input_html: { class: "" }
-      collection: [
-        ['Strawberry', 'Berries'],
-        ['Flaxseed', 'Nuts'],
-        ['Spinach', 'Greens'],
-        ['Turmeric', 'Spices'],
-        ['Banana', 'Banana'],
-        ['Avocado', 'Avocado']
-
-      ],
-      as: :check_boxes,
-      # selected: 0,
-      label_method: :second,
-      value_method: :first
-      %>
-
-    <% end %>
-
-
-      <%= f.submit 'Done', class: 'testbtn btn btn-lg btn-success' %>
+            </div>
+          </div>
+          <%= f.submit 'Done', class: 'testbtn btn btn-lg btn-success' %>
+        </div>
+        <% end %>
+      </div>
     </div>
 
-  </div>
-  <% end %>
-</div>
+    <% else %>
+    <h1>Hi Guest!</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias eum, maxime vel soluta.</p>
+    <!-- Create a new user instance -->
+    <%= link_to 'Configure', smoothies_configure_path, class: "btn btn-default" %>
+    <% end %>
 
-<div class="sidebar">
-  <div class="side-element">
-    <%#= render 'allergies/new' %>
-  </div>
-  <div class="side-element">
-    <%#= render 'dislikes/new' %>
-  </div>
-  <div class="side-element">
-    <%#= render 'likes/new' %>
-  </div>
-</div>
-</div>
-
-<% else %>
-<h1>Hi Guest!</h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias eum, maxime vel soluta.</p>
-<!-- Create a new user instance -->
-<%= link_to 'Configure', smoothies_configure_path, class: "btn btn-default" %>
-<% end %>
-
-<script>
+    <script>
 
   // document.querySelector(".testbtn").addEventListener("click", event => {
   //   console.log("hello")

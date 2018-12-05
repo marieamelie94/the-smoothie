@@ -30,18 +30,14 @@
   }
 
   .content-bottom {
-    display: flex;
-
-    .content-bottom-element{
-      padding:12px;
-      margin: 26px auto 6px auto;
-    }
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
   }
 
 }
 
 .preferences-form {
-  max-width: 360px;
+  max-width: 720px;
   margin: 0 auto;
   margin-bottom: 48px;
 
@@ -61,4 +57,68 @@
 .value__selected-info-top {
   margin-top: 50px;
   display: flex;
+}
+
+.input-allergies-other,
+.input-likes-other,
+.input-dislikes-other {
+  margin-top: 1rem;
+}
+
+.user_goal,
+.user_gender,
+.allergies,
+.likes,
+.dislikes {
+  margin-bottom: 20rem;
+
+  .form-control {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+}
+
+.user_goal,
+.user_gender,
+.user_allergy_ingredient,
+.user_dislike_ingredient,
+.user_like_ingredient {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  grid-gap: 2rem;
+
+  > label {
+    width: 100%;
+    grid-column: 1/4;
+  }
+
+  .checkbox,
+  .radio {
+    margin: 0 !important;
+  }
+
+  .check_boxes,
+  .radio_buttons {
+    display: none;
+  }
+
+  input[type="checkbox"]:checked+label,
+  input[type="radio"]:checked+label {
+    background: #A5E5EB;
+  }
+
+  .radio label,
+  .checkbox label {
+    min-height: 24px;
+    padding-left: 0;
+    margin-bottom: 0;
+    font-weight: normal;
+    cursor: pointer;
+    background: #eee;
+    padding: 1rem 2rem;
+    width: 100%;
+    text-align: center;
+    border-radius: 8px;
+  }
 }
