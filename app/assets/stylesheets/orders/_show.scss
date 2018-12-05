@@ -1,0 +1,45 @@
+
+.home-btn {
+  // margin-top: 12px;
+  width: 160px;
+  margin: 0 auto;
+
+}
+
+.recap-wrapper {
+  width: 74vw;
+  margin: 54px auto;
+  display: flex;
+
+}
+
+.recap-box {
+  text-align: left;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 44px;
+  padding: 36px 46px;
+  width: 100%;
+
+  &:nth-child(1) {
+    margin-right: 6px;
+  }
+  &:nth-child(2) {
+    margin-left: 6px
+  }
+}
+
+.recap-bottom {
+  text-align: center;
+}
+
+.recap-icon {
+  text-align: center;
+  margin-bottom: 16px;
+  color:#62F69D;
+  font-size: 36px;
+}
+
+td {
+  padding: 4px 8px;
+}

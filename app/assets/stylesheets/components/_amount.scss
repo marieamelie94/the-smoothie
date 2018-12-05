@@ -18,17 +18,25 @@
 
   &__selected {
     font-size: 80px;
-    color: #62F69D;
+    color: #AA4475;
     text-align: center;
   }
 
   &__selected-info-top {
     margin-top: 24px;
     text-align: center;
+    font-size: 24px;
   }
 
   &__selected-info-bottom {
     margin-bottom: 24px;
     text-align: center;
+    font-size: 24px;
   }
+}
+
+#price_amount__selected {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 24px;
 }

@@ -8,7 +8,8 @@
 
 p "creating stuff ..."
 
-user1 = User.create!(first_name: "Marie Amelié", last_name: "Sandrock", email:"mas@gmail.com", password:"secret")
+
+user1 = User.create!(first_name: "Marie Amélie", last_name: "Sandrock", email:"mas@gmail.com", password:"secret")
 
 avocado = Ingredient.create!(name: "Avocado", photo:"https://res.cloudinary.com/mas-cloud/image/upload/v1543411319/the-smoothie/avocados.png")
 spinach = Ingredient.create!(name: "Spinach", photo:"https://res.cloudinary.com/mas-cloud/image/upload/v1543411336/the-smoothie/spinach.png")
