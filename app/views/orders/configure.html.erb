@@ -69,7 +69,7 @@
             <% smoothie.doses.each do |d| %>
             <div class="smoothie__ingredient">
               <%= d.ingredient.name %> <%= d.value%><%= d.unit%>
-              <img src="<%= smoothie.photo %>" alt="" width ="150" height="120">
+              <img src="<%= d.ingredient.photo %>" alt="" width ="150" height="120">
             </div>
             <% end %>
           </div>
