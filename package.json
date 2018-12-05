@@ -2,11 +2,13 @@
   "name": "the-smoothie",
   "private": true,
   "dependencies": {
+    "@mapbox/mapbox-gl-geocoder": "^2.3.0",
     "@rails/webpacker": "3.5",
     "bootstrap": "3",
     "flatpickr": "^4.5.2",
     "jquery": "^3.3.1",
     "jquery-ujs": "^1.2.2",
-    "mapbox-gl": "^0.52.0-beta.1"
+    "mapbox-gl": "^0.52.0-beta.1",
+    "places.js": "^1.14.0"
   }
 }
