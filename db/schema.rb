@@ -97,6 +97,8 @@ ActiveRecord::Schema.define(version: 2018_12_05_124336) do
     t.integer "smoothies_price_cents", default: 0, null: false
     t.integer "total_smoothies_price_cents", default: 0, null: false
     t.jsonb "payment"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 

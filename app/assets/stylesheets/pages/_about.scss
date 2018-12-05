@@ -8,6 +8,9 @@
   img {
     width: 250px;
     box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+    height: 250px;
+    object-position: 38%;
+    object-fit: cover;
   }
 
   h1 {
@@ -38,7 +41,7 @@
     text-align: center;
   }
   .a {
-    color: #62F69D;
+    color: #B72886;
   }
 }
   .title {
