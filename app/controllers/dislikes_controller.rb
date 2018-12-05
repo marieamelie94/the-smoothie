@@ -1,27 +1,39 @@
 class DislikesController < ApplicationController
   def new
-    @dislike = Dislike.new
+    @dislike = Disike.new
   end
 
   def create
     @user = current_user
-    dislike_param.each do |ingredient|
-      next unless ingredient.empty?
-      @ingedient = Ingredient.where(name: ingredient)
-      next unless !@ingredient.nil?
-      @dislike = Dislike.new(user: @user, ingredient: @ingredient)
-      # @allergy.user = @user
-      if @dislike.save!
-        render preferences_path
+    dislikes_params[:ingredient].each do |ingredient|
+      p ingredient
+      if ingredient == ""
+        p "empty 1 ingredient"
       else
-        render preferences_path
+        @ingredient = Ingredient.where(name: ingredient.to_sym)
+        p "empty 2 ingredient"
+        if @ingredient.nil?
+          p "empty 2 ingredient"
+        else
+          p "hhhhhhhhhhhhhhhhhhhhhhhhhhhh"
+          p "Hello #{@ingredient.name}"
+          # @user.allergies = @ingredient
+
+          @dislike = Dislike.new(user_id: @user.id, ingredient_id: @ingredient.ids[0])
+          if @dislike.save!
+            p "saved ************"
+          else
+            p "failed !!!!!!!!!!!!"
+          end
+        end
       end
     end
+    render 'preferences/edit'
   end
 
   private
 
-  def dislike_param
-    params.require(:dislike).permit(ingredients: [])
+  def dislikes_params
+    params.require(:dislike).permit(ingredient: [])
   end
 end

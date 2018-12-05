@@ -25,10 +25,14 @@ class AllergiesController < ApplicationController
         else
           p "hhhhhhhhhhhhhhhhhhhhhhhhhhhh"
           p "Hello #{@ingredient.name}"
-          @user.allergies << @ingredient
+          # @user.allergies = @ingredient
 
-          # @allergy = Allergy.new(user: @user, ingredient: @ingredient)
-          # @allergy.save!
+          @allergy = Allergy.new(user_id: @user.id, ingredient_id: @ingredient.ids[0])
+          if @allergy.save!
+            p "saved ************"
+          else
+            p "failed !!!!!!!!!!!!"
+          end
         end
       end
     end

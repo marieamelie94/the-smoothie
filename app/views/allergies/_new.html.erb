@@ -9,18 +9,18 @@
       # label: false,
       # input_html: { class: "" }
       collection: [
-        ['Soy', 'Soy'],
-        ['Dairy milk', 'Dairy milk'],
-        ['Nuts', 'Nuts'],
-        ['Peanuts', 'Peanuts'],
+        ['Flaxseed', 'Soy'],
+        ['Flaxseed', 'Dairy'],
+        ['Flaxseed', 'Nuts'],
+        ['Flaxseed', 'Peanuts'],
         ['Flaxseed', 'Flaxseed'],
 
       ],
       as: :check_boxes,
-      :disable_with => true
-      # label_method: :second,
+      # :disable_with => true
+      label_method: :second,
 
-      # value_method: :first
+      value_method: :first
       %>
 
       <%= f.submit 'Add', class: 'btn btn-default' %>

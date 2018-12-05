@@ -9,16 +9,24 @@
 .recap-wrapper {
   width: 74vw;
   margin: 54px auto;
-
+  display: flex;
 
 }
 
 .recap-box {
   text-align: left;
-  height: 48vh;
+  height: auto;
   border-radius: 4px;
   margin-bottom: 44px;
   padding: 36px 46px;
+  width: 100%;
+
+  &:nth-child(1) {
+    margin-right: 6px;
+  }
+  &:nth-child(2) {
+    margin-left: 6px
+  }
 }
 
 .recap-bottom {
