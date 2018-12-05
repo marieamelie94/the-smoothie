@@ -8,6 +8,9 @@
         <%= render 'components/logo' %>
         <%= render 'components/logo' %>
       </div>
+      <div class="button" style="display: flex; justify-content: center;">
+        <%= link_to 'Get Started', page_path("choose-amount"), class: "btn-lg btn-success b1" %>
+      </div>
     </div>
   </div>
 <hr>
@@ -23,14 +26,6 @@
       <div>
         <div class="col-sm-6"> <h4 class="headline--donation">We donate 5% of our annual profit to animal rescue</h4></div>
         <div class="col-sm-4"><img class="rescue__logo"src="https://res.cloudinary.com/mas-cloud/image/upload/v1543587871/the-smoothie/animalrescue.png" alt="animalrescue"></div>
-      </div>
-    </div>
-  </div>
-<hr>
-  <div class="section">
-    <div class="container">
-      <div class="button" style="display: flex; justify-content: center;">
-        <%= link_to 'Get Started', page_path("choose-amount"), class: "btn-lg btn-success b1" %>
       </div>
     </div>
   </div>
