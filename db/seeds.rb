@@ -7,7 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 p "creating stuff ..."
-
 user1 = User.create!(first_name: "Marie Amélie", last_name: "Sandrock", email:"mas@gmail.com", password:"secret")
 
 avocado = Ingredient.create!(name: "Avocado", photo:"https://res.cloudinary.com/mas-cloud/image/upload/v1543411319/the-smoothie/avocados.png")
