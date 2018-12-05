@@ -92,6 +92,33 @@ h1 {
 
 }
 
+.ap-input-icon.ap-icon-pin {
+  cursor: initial;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 0;
+  background: none !important;
+  background-image: none;
+  color: white !important;
+  font-weight: 400;
+  box-shadow: none;
+  padding: 0.5rem 1rem;
+  border-color: #AA4475 !important;
+  position: relative;
+
+  svg {
+    fill: #cfcfcf;
+    position: absolute;
+    top: 50%;
+    right: 50% !important;
+    -webkit-transform: translate(50%, -50%);
+    transform: translate(50%, -50%);
+  }
+}
+
 .form-control {
   margin-bottom: 24px;
   max-width: 100%;
