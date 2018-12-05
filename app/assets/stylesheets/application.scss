@@ -44,7 +44,7 @@ h1 {
 }
 
 .stripe-button-el span {
-    background-image:  linear-gradient(#AA4475,#AA4475 100%,#AA4475) !important;
+    background-image:  linear-gradient( $pink, $pink 100%, $pink) !important;
     font-family: "Dosis", sans-serif !important;
     outline: 0 !important;
     border: 0 !important;
@@ -75,19 +75,20 @@ h1 {
 .form button,
 .form input[type="submit"] {
   background-image: none;
-  background: #AA4475 !important;
+  background: $pink !important;
   color: white !important;
   font-weight: 400;
   box-shadow: none;
   padding: 0.5rem 1rem;
-  border-color: #AA4475 !important;
+  border-color: $pink !important;
+  transition: all 0.15s ease-in-out;
 
   &:hover,
   &:active,
   &:focus, {
-    background: rgba(#AA4475, 0.9);
+    background: rgba($pink, 0.7) !important;
     color: white;
-    border-color: #AA4475 !important;
+    border-color: $pink !important;
   }
 
 }
@@ -106,11 +107,10 @@ h1 {
   font-weight: 400;
   box-shadow: none;
   padding: 0.5rem 1rem;
-  border-color: #AA4475 !important;
-  position: relative;
+  border-color: $pink !important;
 
   svg {
-    fill: #cfcfcf;
+    fill: $pink;
     position: absolute;
     top: 50%;
     right: 50% !important;

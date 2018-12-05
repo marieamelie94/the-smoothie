@@ -38,18 +38,18 @@
     background: #fff;
     border-radius: 5px;
     text-align: center;
-    box-shadow: 0px 3px 3px #c44e886e!important;
+    box-shadow: 0px 4px 16px rgba($pink, 0.1) !important;
 
     // border-top: 0.5px solid #C44E88;
 }
 
 #sbtm {
   background-color: white!important;
-  color:#AA4475 !important;
+  color: $pink !important;
 }
 
 #sbtm:hover{
-  background-color: #AA4475!important;
+  background-color: $pink !important;
   color:white!important;
 }
 
@@ -67,16 +67,16 @@
   margin-top: 20px;
   margin-bottom: 5px;
   position: relative;
-    box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
-    padding: 0px;
-    background: white;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+  padding: 0px;
+  background: white;
 }
 
 .smoothie__ingredients__title{
   font-weight: bold;
   text-align:center;
   margin-top: -5px;
-  color:#e82982;
+  color: #e82982;
 }
 
 .smoothie-dose__ingredient {
