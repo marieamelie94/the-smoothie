@@ -1,6 +1,6 @@
 <%= simple_form_for Dislike.new do |f| %>
     <div >
-      <%= f.input :ingredients,
+      <%= f.input :ingredient,
       label: "Dislikes",
       # Ingredient.where(name: "Flaxseed"),
       # label_method: :name,
@@ -8,17 +8,18 @@
       # label: false,
       # input_html: { class: "" }
       collection: [
-        ['Soy', 'Soy'],
-        ['Cow milk', 'Cow milk'],
-        ['Nuts', 'Nuts'],
-        ['Peanuts', 'Peanuts'],
-
+        ['Strawberry', 'Berries'],
+        ['Flaxseed', 'Nuts'],
+        ['Spinach', 'Greens'],
+        ['Turmeric', 'Spices'],
+        ['Banana', 'Banana'],
+        ['Avocado', 'Avocado']
       ],
-      as: :check_boxes
+      as: :check_boxes,
       # selected: 0,
-      # label_method: :second,
+      label_method: :second,
 
-      # value_method: :first
+      value_method: :first
       %>
 
       <%= f.submit 'Add', class: 'btn btn-default' %>

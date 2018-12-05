@@ -8,7 +8,7 @@
 
 p "creating stuff ..."
 
-user1 = User.create!(first_name: "Marie Amelié", last_name: "Sandrock", email:"mas@gmail.com", password:"secret")
+user1 = User.create!(first_name: "Marie Amélie", last_name: "Sandrock", email:"mas@gmail.com", password:"secret")
 
 avocado = Ingredient.create!(name: "Avocado")
 spinach = Ingredient.create!(name: "Spinach")
@@ -17,9 +17,9 @@ turmeric = Ingredient.create!(name: "Turmeric")
 flaxseed = Ingredient.create!(name: "Flaxseed")
 coconut_water = Ingredient.create!(name: "Coconut Water")
 wheatgrass = Ingredient.create!(name: "Wheatgrass")
-beets_frozen = Ingredient.create!(name: "Beets frozen")
-cucumber_frozen = Ingredient.create!(name:"Cucumber frozen")
-banana_frozen = Ingredient.create!(name:"Banana Frozen")
+beets_frozen = Ingredient.create!(name: "Beets")
+cucumber_frozen = Ingredient.create!(name:"Cucumber")
+banana_frozen = Ingredient.create!(name:"Banana")
 rice_cococnut_milk = Ingredient.create!(name:"Rice Coconut Milk")
 strawberry = Ingredient.create!(name:"Strawberry")
 
