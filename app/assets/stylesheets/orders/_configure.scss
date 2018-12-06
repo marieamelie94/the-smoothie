@@ -60,7 +60,10 @@
 #xampleModalLabel {
   font-weight: bold;
 }
-
+.ingredient__photo{
+  display: flex;
+  align-items: center;
+}
 .ingredient_photo_popup {
   border-radius:50%;
   margin-right: 10px;
