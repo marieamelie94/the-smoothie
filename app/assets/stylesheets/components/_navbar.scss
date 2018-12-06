@@ -26,6 +26,10 @@
   color: #C44D88;
 }
 
+.logo:focus {
+  color: $pink;
+}
+
 #logo_p{
 width: 55px;
 height: 60px;
