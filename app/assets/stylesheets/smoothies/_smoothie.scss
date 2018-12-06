@@ -1,10 +1,13 @@
 .smoothie {
   padding: 2rem;
   border: 1px solid #ddd;
-  margin-bottom: 1rem;
   background: #fff;
   border-radius: 8px;
   text-align: center;
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+  margin-bottom: 1rem;
 
   &__amount {
     display: flex;
@@ -12,6 +15,10 @@
     align-items: center;
     padding: 0.5rem 0;
     margin-bottom: 1rem;
+  }
+
+  .btn {
+    color: $pink !important;
   }
 
   .input.select {
@@ -26,11 +33,17 @@
 .smoothie--detail {
   background: #fff;
   border-radius: 8px;
-  max-width: 720px;
+  max-width: 100%;
   margin: 0 auto;
   text-align: center;
   padding: 48px;
   margin-bottom: 48px;
+  width: 100%;
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 }
 
 .smoothie__ingredients {
