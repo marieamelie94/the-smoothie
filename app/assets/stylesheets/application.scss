@@ -74,7 +74,7 @@ h1 {
 .btn-default,
 .form button,
 .form input[type="submit"] {
-  background-image: none;
+  // background-image: none;
 
   color: white !important;
   font-weight: 400;
@@ -91,6 +91,10 @@ h1 {
   }
 
 }
+
+// .btn-success {
+//   background-color: $pink !important;
+// }
 
 .ap-input-icon.ap-icon-pin {
   cursor: initial;

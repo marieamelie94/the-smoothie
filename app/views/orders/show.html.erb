@@ -1,9 +1,9 @@
 <div class="container">
-  <h1>Thank you</h1>
+   <h2 class="section__title">Thank you</h2>
   <div class="recap-wrapper">
 
     <div class=" form recap-box">
-      <div class="recap-icon"> <img src="https://res.cloudinary.com/mas-cloud/image/upload/v1544011161/the-smoothie/box-magenta.png" width="48px" alt="box"> </div>
+      <div class="recap-icon"> <img src="https://res.cloudinary.com/mas-cloud/image/upload/v1544107531/the-smoothie/icon_box_pink-2.png" width="48px" alt="box"> </div>
       <p><strong>Your Smoothies:</strong></p>
       <% @order.order_items.each do |item| %>
         <% next if item.smoothie_quantity == 0 %>
@@ -15,7 +15,7 @@
 
     </div>
     <div class="form recap-box">
-     <div class="recap-icon"><img src="https://res.cloudinary.com/mas-cloud/image/upload/v1544011157/the-smoothie/bike-magenta.png" alt="" width="48px"> <!-- <i class="fas fa-map-marker-alt"> --></i></div>
+     <div class="recap-icon"><img src="https://res.cloudinary.com/mas-cloud/image/upload/v1544107531/the-smoothie/icon_cycle.png" alt="" width="48px"> <!-- <i class="fas fa-map-marker-alt"> --></i></div>
      <table>
       <tr>
          <td><strong>Will be delivered at:</strong></td>
@@ -34,9 +34,9 @@
 </div>
 
   <div class=" recap-bottom col-sm-12">
-    <div class="home-btn">
-      <%= link_to "Home", root_path, class: "btn btn-xs btn-success" %>
-    </div>
+    <!-- <div class="home-btn">
+      <%#= link_to "Home", root_path, class: "btn btn-xs btn-success" %>
+    </div> -->
   </div>
 
 </div>

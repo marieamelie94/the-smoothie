@@ -48,8 +48,18 @@
 }
 
 
-.section {
-  padding: 80px 0;
+.container .section__title {
+  margin: 60px 0;
+}
+
+.configure__content .container .section__title {
+  margin-top: 60px;
+}
+
+#choose-amount {
+  margin: 60px 0;
+}
+
 
   .section__title {
     text-align: center;
@@ -57,6 +67,9 @@
     font-weight: bold;
     margin-bottom: 48px;
   }
+.section {
+  padding: 80px 0;
+
   .section__image {
     width: 100%;
   }
