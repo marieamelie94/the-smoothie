@@ -1,5 +1,4 @@
 <div class="configure">
-
   <div class="configure__sidebar">
     <div class="selected-smoothies">
       <div class="selected-smoothies__total">
@@ -21,25 +20,42 @@
       <button id="order-submit" class="btn btn-success" type="button">Order</button>
     </div>
   </div>
-
   <div class="configure__content">
     <div class="container">
-      <h2 class="section__title">Configure Your Basket</h2>
+      <h1>Configure Your Basket</h1>
       <%= simple_form_for :order, url: order_add_items_path(@order) do |form| %>
-
       <div class="smoothies">
-        <% @smoothies.each do |smoothie| %>
-
+        <% @smoothies.each_with_index do |smoothie, index| %>
         <div class="smoothie">
           <img src="<%= smoothie.photo %>" alt="" width ="150" height="120">
-
-          <%= form.simple_fields_for :order_items do |s| %>
+          <%= form.simple_fields_for :order_items, remote: true do |s| %>
           <h3><%=smoothie.name%></h3>
-
-          <div class="smoothie__amount">
-            <% key = "smoothie_quantity" + smoothie.id.to_s %>
-            <%= s.input key.to_sym, selected: 0, collection: (0..7), label: "Quantity", required: false %>
-          </div>
+            <% id = "order_order_items_smoothie_quantity#{index+1}" %>
+            <div class="smoothie-quantity-plus">
+                <button data-field-id= <%= id %>  class="quantity-increase btn btn-default" > + </button>
+            </div>
+            <div class="smoothie__amount">
+              <% key = "smoothie_quantity" + smoothie.id.to_s %>
+              <%= s.input key.to_sym, selected: 0, required: false, label: false,
+              input_html: {id: id, value: 0} %>
+            </div>
+            <div class="smoothie-quantity-minus">
+              <button data-field-id= <%= id %>  class="quantity-decrease"> - </button>
+            </div>
+<!--
+          <div class="form-group">
+        <label>Quantity: </label>
+        <div class="input-group">
+            <div class="input-group-btn">
+                <button id="down" class="btn btn-default" onclick=" down('0')"><span class="glyphicon glyphicon-minus"></span></button>
+            </div>
+            <input type="text" id="myNumber" class="form-control input-number" value="0" />
+            <div class="input-group-btn">
+                <button id="up" class="btn btn-default" onclick="up('10')"><span class="glyphicon glyphicon-plus"></span></button>
+            </div>
+        </div>
+    </div>
+ -->
           <% end %>
           <div class="btn btn-default" id="sbtm" data-toggle="modal" data-target='<%= "#detox_description_#{smoothie.id}" %>'>Details</div>
         </div>
@@ -48,9 +64,6 @@
       <% end %>
     </div>
   </div>
-
-
-
   <% @smoothies.each do |smoothie| %>
   <div class="modal fade" id='<%= "detox_description_#{smoothie.id}" %>' tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -59,12 +72,11 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-
           <strong><h4 class="modal-title" id="exampleModalLabel"><%=smoothie.name%></h4></strong>
           <%= smoothie.description %>
         </div>
         <div class="modal-body">
-          <div class="smoothie__ingredients">
+          <div class="smoothie__ingredientss">
             <h2 class="smoothie__ingredients__title">Ingredients</h2>
             <% smoothie.doses.each do |d| %>
             <div class="smoothie-dose__ingredient">
@@ -77,7 +89,7 @@
                 </div>
               </div>
               <div class="ingredient__photo">
-                <img src="<%= d.ingredient.photo %>" alt="">
+                <img src="<%= d.ingredient.photo %>" alt="" class="ingredient_photo_popup">
               </div>
             </div>
             <% end %>
@@ -86,23 +98,77 @@
       </div>
       <div class="modal-footer">
        <!--  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-
       </div>
     </div>
   </div>
-
 </div>
 <% end %>
 <script>
+// ---------------------------------------------SMOOTHIE QUANTITY BUTTONS
+      selectedSmoothieList = document.getElementById(
+        'selected-smoothie-list'
+        );
+const buttonPlus = document.querySelectorAll("button.quantity-increase")
+buttonPlus.forEach((button) => {
+  button.addEventListener("click", (e) => {
+    event.preventDefault();
+    increaseQuantity(e.currentTarget)
+  })
+})
+let array = []
+function increaseQuantity(target) {
+  const id = target.dataset.fieldId
+  input = document.getElementById(id)
+  input_numeric = Number(input.value)
+  input_numeric += 1
+  input.value = String(input_numeric)
+  total = document.getElementById("selected-smoothies__total").innerText
+  total_numeric = Number(total)
+  total_numeric += 1
+  document.getElementById("selected-smoothies__total").innerText = String(total_numeric)
+  smoothie_name = target.parentElement.parentNode.querySelector("h3").innerText
+  selectedSmoothieList.querySelectorAll("li").forEach((li) => {
+    array.push( li.inneText.substring(li.innerText.indexOf(" ") + 1))
+  })
+  document.getElementById('selected-smoothie-list').querySelectorAll("li")[0].innerText.substring(document.getElementById('selected-smoothie-list').querySelectorAll("li")[0].innerText.indexOf(" ") + 1)
+        listItem = document.createElement('li');
+        listItem.className = "list-group-item";
+        listItem.innerHTML = `
+          <span class="badge">
+            ${String(total_numeric)}
+          </span>
+          ${smoothie_name}
+        `;
+        selectedSmoothieList.appendChild(listItem);
+}
+const buttonMinus = document.querySelectorAll("button.quantity-decrease")
+buttonMinus.forEach((button) => {
+  button.addEventListener("click", (e) => {
+    event.preventDefault();
+    decreaseQuantity(e.currentTarget)
+  })
+})
+function decreaseQuantity(target) {
+  const id = target.dataset.fieldId
+  input = document.getElementById(id)
+  input_numeric = Number(input.value)
+  input_numeric -= 1
+  input.value = String(input_numeric)
+  total = document.getElementById("selected-smoothies__total").innerText
+  total_numeric = Number(total)
+  total_numeric -= 1
+  document.getElementById("selected-smoothies__total").innerText = String(total_numeric)
+}
+// ---------------------------BASKET SELECTED SMOOTHIES SIDE BAR:
   const maxSmoothies = <%= raw @order.smoothies_amount.to_json %>;
   const totalSmoothies = <%= raw @smoothies.all().to_json %>;
   const upgradeBanner = document.getElementById('upgrade-banner');
   let selectedSmoothies = {};
   totalSmoothies.forEach((smoothie, index) => {
-    const totalSelectedSmoothies = document.getElementById(
+     totalSelectedSmoothies = document.getElementById(
       'selected-smoothies__total'
       );
-    const smoothieAmount = document.getElementById(
+     smoothieAmount = document.getElementById(
       `order_order_items_smoothie_quantity${index + 1}`
       );
     smoothieAmount.addEventListener("change", (event) => {
@@ -110,9 +176,6 @@
       (event.target.value === '0')
       ? delete selectedSmoothies[smoothie.name]
       : selectedSmoothies[smoothie.name] = event.target.value;
-      const selectedSmoothieList = document.getElementById(
-        'selected-smoothie-list'
-        );
       while (selectedSmoothieList.firstChild) {
         selectedSmoothieList.removeChild(selectedSmoothieList.firstChild);
       }
@@ -140,8 +203,24 @@
       }
     });
   });
+ // ----------------------------------------------ORDER BUTTON
  document.getElementById("order-submit").addEventListener("click", event => {
-    console.log("hello")
     document.querySelector(".simple_form.order").submit()
   })
 </script>
+<!--
+<script type="text/javascript">
+function up(max) {
+    document.getElementById("myNumber").value = parseInt(document.getElementById("myNumber").value) + 1;
+    if (document.getElementById("myNumber").value >= parseInt(max)) {
+        document.getElementById("myNumber").value = max;
+    }
+}
+function down(min) {
+    document.getElementById("myNumber").value = parseInt(document.getElementById("myNumber").value) - 1;
+    if (document.getElementById("myNumber").value <= parseInt(min)) {
+        document.getElementById("myNumber").value = min;
+    }
+}
+</script>
+ -->
