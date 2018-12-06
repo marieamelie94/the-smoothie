@@ -14,10 +14,6 @@
   margin-top: 40px;
 }
 
-.rescue__logo {
-  margin-left: 150px;
-}
-
 .b1 {
   display: flex;
   justify-content: center;
@@ -83,7 +79,10 @@
   svg {
     width: 100%;
     max-width: 240px;
-    height: 240px;
+    height: 120px;
+    @media(min-width: 767px) {
+      height: 240px;
+    }
   }
 }
 
@@ -175,8 +174,22 @@
   100% {fill:rgb(255, 100, 100); color:rgb(255, 100, 100);}
 }
 
+.donation {
+  @media(min-width: 767px) {
+    display: flex;
+    justify-content: space-between;
+    max-width: 720px;
+    margin: 1rem auto;
+  }
+}
+
 .headline--donation {
-  text-align: initial;
-  margin-left: 70px;
-  margin-top: 34px;
+  text-align: left;
+  max-width: 360px;
+  margin-bottom: 2rem;
+}
+
+.rescue__logo {
+  margin: 0 auto;
+  display: flex;
 }
