@@ -1,0 +1,5 @@
+_product_name: "The Smoothie"
+meta_title: "The Smoothie - Delivery"
+meta_description: "The frozen smoothie delivery service"
+meta_image: "cover.png"                       # should exist in `app/assets/images/`
+twitter_account: "@thesmoothie_"
