@@ -8,13 +8,6 @@
 
 
     <style>
-    .logoo{
-      text-decoration: none;
-  font-family: "Dosis", sans-serif;
-  font-weight: 600px;
-  font-size: 30px;
-  color: #AA4475;
-    }
      * {
          -moz-box-sizing:border-box;
          -webkit-box-sizing:border-box;
@@ -39,7 +32,6 @@
      }
 
      html {
-
          font-size: 16px;
          line-height: 24px;
          width:100%;
@@ -59,7 +51,6 @@
      }
 
      body {
-
          min-height:100%;
          -webkit-font-smoothing: subpixel-antialiased;
      }
@@ -73,14 +64,14 @@
          display: block;
          height: 0;
          visibility: hidden;
-     }
+     } 
      .clearfix:after {
          clear: both;
      }
     </style>
     <style>
   .plain.error-page-wrapper {
-    font-family: "Dosis", sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     background-color:#6355bc;
     padding:0 5%;
     position:relative;
@@ -142,7 +133,7 @@
   }
   .plain.error-page-wrapper .buttons-container a {
     transition: color .2s linear, border-color .2s linear;
-    font-size:12px;
+    font-size:14px;
     text-transform: uppercase;
     text-decoration: none;
     color:#fff;
@@ -228,25 +219,25 @@
   </head>
   <body class="plain error-page-wrapper background-color background-image">
     <div class="content-container">
-      <!-- <div class="logoo">The smoothie</div> -->
 	<div class="head-line secondary-text-color">
-		404
+		503
 	</div>
 	<div class="subheader primary-text-color">
-		Oops, the page you're <br>
-		looking for does not exist.
+		Looks like we're having <br>
+		some server issues.
 	</div>
-	<hr>
-	<div class="clearfix"></div>
-	<div class="context primary-text-color">
-		<!-- doesn't use context_content because it's ALWAYS the same thing -->
+    <hr>
+    <div class="clearfix"></div>
+    <div class="context primary-text-color">
+      
     <p>
-      You may want to head back to the homepage.<br />
+      Go back to the previous page and try again.
       If you think something is broken, report a problem.
     </p>
-	</div>
+
+
+    </div>
 	<div class="buttons-container">
-		<a class="border-button" href="https://the-smoothie.herokuapp.com/" target="_blank">Go To Homepage</a>
 		<a class="border-button" href="mailto:#" target="_blank">Report A Problem</a>
 	</div>
 </div>
@@ -356,7 +347,7 @@
        });
 
      };
-     var ep = new ErrorPage('body', "404", "plain");
+     var ep = new ErrorPage('body', "503", "plain");
      ep.initialize();
 
      // hack to make sure content stays centered >_<
@@ -366,7 +357,7 @@
 
     </script>
 
-
+    
       <!-- OneTrust Cookies Consent Notice (statuspage.io, en-GB) start -->
   <script src="https://cdn.cookielaw.org/consent/0800f092-2124-46ec-b11d-b4f48b677302.js" type="text/javascript" charset="UTF-8"></script>
   <script type="text/javascript">
